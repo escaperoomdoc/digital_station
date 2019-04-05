@@ -29,18 +29,40 @@ module.exports = (http, model) =>
 			try {
 				console.log(`socket.on (client2server) : ${data}`);
 				obj = JSON.parse(data);
-				if (obj.get) {
-					if(obj.get === 'all') {
-						text = JSON.stringify(socket.model.data);
+				function response(obj) {
+					text = {};
+					if (obj.response && obj.response === "true") {
+						text = JSON.stringify(socket.model.data);						
 					}
+					socket.emit('server2client', text);
 				}
-				if (obj.cmd) {
-					if (obj.cmd === 'complete') {
+				if (obj.command) {
+					if (obj.command === 'subscribe') {
+						abon.name = obj.name;
+						console.log(`socket ${abon.id} introduced as: ${abon.name}`);
+						response(obj);
+					}
+					if (obj.command === 'reset') {
+						socket.model.reset();
+						console.log(`abonent  ${abon.name}(${abon.id}) reset the flow`);
+						response(obj);
+					}					
+					if (obj.command === 'play') {
+						socket.model.play();
+						console.log(`abonent  ${abon.name}(${abon.id}) started the flow`);
+						response(obj);
+					}
+					if (obj.command === 'pause') {
+						socket.model.pause();
+						console.log(`abonent  ${abon.name}(${abon.id}) paused the flow`);
+						response(obj);
+					}					
+					if (obj.command === 'complete') {
 						var stage = 'any';
 						if (obj.stage) stage = obj.stage;
-						socket.model.flowComplete(stage);					
-					}
-					if (obj.cmd === 'play') {
+						socket.model.complete(stage);
+						console.log(`abonent  ${abon.name}(${abon.id}) completed current stage`);
+						response(obj);
 					}
 				}
 			}

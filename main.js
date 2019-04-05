@@ -15,6 +15,7 @@ app.get('/abonent/:id', function(req, res) {
 	res.sendFile(`${__dirname}/frontend/${req.params.id}/index.html`);
 });
 
+model.reset();
 sio(http, model);
 
 http.listen(80, () => {
