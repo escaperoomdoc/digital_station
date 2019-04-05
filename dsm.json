@@ -1,0 +1,100 @@
+{
+	"abonents" : [],
+	"flow": {
+		"start": {
+			"state": "idle",
+			"owner": "",
+			"next": ["engine_ready"]
+		},
+		"engine_ready": {
+			"state": "idle",
+			"owner": "tcm",
+			"next": ["route_in"]
+		},
+		"route_in": {
+			"state": "idle",
+			"owner": "dsp",
+			"next": ["arrival"]
+		},
+		"arrival": {
+			"state": "idle",
+			"owner": "tcm",
+			"next": ["magistral", "documents"]
+		},
+		"documents": {
+			"state": "idle",
+			"owner": "stc",
+			"next": ["depart_ready"]
+		},
+		"magistral": {
+			"state": "idle",
+			"owner": "vcde_h",
+			"next": ["pressure_head", "pressure_tail"]
+		},
+		"pressure_head": {
+			"state": "idle",
+			"owner": "tcm",
+			"next": ["brakes"]
+		},
+		"pressure_tail": {
+			"state": "idle",
+			"owner": "vcde_h",
+			"next": ["brakes"]
+		},
+		"brakes": {
+			"state": "idle",
+			"owner": "tcm",
+			"next": ["brakes_head", "brakes_tail"]
+		},
+		"brakes_head": {
+			"state": "idle",
+			"next": ["brakes_release"]
+		},
+		"brakes_tail": {
+			"state": "idle",
+			"next": ["brakes_release"]
+		},
+		"brakes_release": {
+			"state": "idle",
+			"next": ["release_head", "release_tail"]
+		},
+		"release_head": {
+			"state": "idle",
+			"next": ["vu45"]
+		},
+		"release_tail": {
+			"state": "idle",
+			"next": ["vu45"]
+		},
+		"vu45": {
+			"state": "idle",
+			"next": ["unshoe"]
+		},
+		"unshoe": {
+			"state": "idle",
+			"next": ["depart_ready"]
+		},
+		"depart_ready": {
+			"state": "idle",
+			"next": ["route_out"]
+		},
+		"route_out": {
+			"state": "idle",
+			"next": ["departure", "accompaniment"]
+		},
+		"departure": {
+			"state": "idle",
+			"next": ["finish"]
+		},
+		"accompaniment": {
+			"state": "idle",
+			"next": ["finish"]
+		},
+		"finish": {
+			"state": "idle",
+			"next": []
+		}
+	},
+	"rdm": {
+	}
+}

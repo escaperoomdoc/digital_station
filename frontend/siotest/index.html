@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>dschart</title>
+</head>
+<body>   
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+	<script>
+		var socket = io.connect(location.host);
+		socket.on('server2client', function(data) {
+			var obj = JSON.parse(data);
+		});
+		setInterval(cbSend, 1000);
+		function cbSend() {
+			socket.emit('client2server', '{"get":"all"}');
+		}
+    </script>
+</body>
+</html>
+
