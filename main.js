@@ -10,6 +10,8 @@ var model = require('./model');
 
 app.use(express.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/css', express.static(path.join(__dirname, 'css')));
 
 app.get('/abonent/:id', function(req, res) {
 	res.sendFile(`${__dirname}/frontend/${req.params.id}/index.html`);
