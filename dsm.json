@@ -1,4 +1,6 @@
 {
+	"state": "none",
+	"time": 0,
 	"abonents" : [],
 	"flow": {
 		"start": {

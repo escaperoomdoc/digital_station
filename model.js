@@ -19,13 +19,28 @@ module.exports.abonDelete = (id) => {
 	return null;
 }
 
-module.exports.flowReset = () => {
-	for(var value of data.flow) {
-		value.state = "idle";
+module.exports.reset = () => {
+	var aa = 0;
+	for(var value in data.flow) {
+		data.flow[value].state = "idle";
+	}
+	data.state = "reset";
+}
+
+module.exports.play = () => {
+	if (data.state === "reset") data.flow.start.state = 'active';
+	if (data.state === "finished") {
+		data.reset();
+		data.state = "play";
 	}
 }
 
-module.exports.flowComplete = (stage) => {
+module.exports.pause = () => {
+	data.flow.start.state = 'active';
+	data.state = "pause";
+}
+
+module.exports.complete = (stage) => {
 	var item = data.flow[stage];
 	if (item && item.state === 'active') {
 		item.state = "completed";
