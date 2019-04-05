@@ -27,7 +27,6 @@ module.exports = (http, model) =>
 		socket.on('client2server', (data) => {
 			var text = {};
 			try {
-				console.log(`socket.on (client2server) : ${data}`);
 				obj = JSON.parse(data);
 				function response(obj) {
 					text = {};
