@@ -12,15 +12,16 @@ module.exports = (http, model) =>
 			socket.model.data.abonents.push({});
 			abon = socket.model.data.abonents[socket.model.data.abonents.length-1];
 			abon.id = socket.id;
+			abon.name = 'unnamed';
 		}
 		// handle disconnect
 		socket.on('disconnect', (reason) => {
-			console.log(`socket ${socket.id} disconnected on reason: ${reason}`);
+			console.log(`abonent ${abon.name}(${abon.id}) disconnected on reason: ${reason}`);
 			socket.model.abonDelete(socket.id);
 		});
 		// handle an error
 		socket.on('error', (error) => {
-			console.log(`socket ${socket.id} has an error: ${error}`);
+			console.log(`abonent ${abon.name}(${abon.id}) has an error: ${error}`);
 			socket.model.abonDelete(socket.id);
 		});
 		// handle incoming
@@ -29,11 +30,11 @@ module.exports = (http, model) =>
 			try {
 				obj = JSON.parse(data);
 				function response(obj) {
-					text = {};
+					answer = {};
 					if (obj.response && obj.response === "true") {
-						text = JSON.stringify(socket.model.data);						
+						answer = JSON.stringify(socket.model.data);						
 					}
-					socket.emit('server2client', text);
+					socket.emit('server2client', answer);
 				}
 				if (obj.command) {
 					if (obj.command === 'subscribe') {
@@ -43,17 +44,17 @@ module.exports = (http, model) =>
 					}
 					if (obj.command === 'reset') {
 						socket.model.reset();
-						console.log(`abonent  ${abon.name}(${abon.id}) reset the flow`);
+						console.log(`abonent ${abon.name}(${abon.id}) reset the flow`);
 						response(obj);
 					}					
 					if (obj.command === 'play') {
 						socket.model.play();
-						console.log(`abonent  ${abon.name}(${abon.id}) started the flow`);
+						console.log(`abonent ${abon.name}(${abon.id}) started the flow`);
 						response(obj);
 					}
 					if (obj.command === 'pause') {
 						socket.model.pause();
-						console.log(`abonent  ${abon.name}(${abon.id}) paused the flow`);
+						console.log(`abonent ${abon.name}(${abon.id}) paused the flow`);
 						response(obj);
 					}					
 					if (obj.command === 'complete') {
