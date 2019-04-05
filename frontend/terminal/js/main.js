@@ -328,17 +328,26 @@ var app = new Vue({
     el: '.app',
     data: {
         event: JSON.parse(JSON.stringify(defaultRDM)),
-        time: "00:00:00"
+        time: 5
     },
     methods: {
-        start() {
-            alert("start")
+        play() {
+            socket.emit('client2server', '{"command":"play","response":"true"}');
+        },
+        pause() {
+            socket.emit('client2server', '{"command":"pause","response":"true"}');
+        },
+        complete() {
+            socket.emit('client2server', '{"command":"complete","response":"true"}');
+        },
+        reset() {
+            socket.emit('client2server', '{"command":"reset","response":"true"}');
         },
         skip() {
             counter++;
             updateElement(str[counter]);
         },
-        reset() {
+        resetOld() {
             this.event =  JSON.parse(JSON.stringify(defaultRDM));
             counter = 0;
             this.time = "00:00:00";
@@ -362,10 +371,10 @@ function read(){
     reader.readAsText(file)
 }
 
-function updateModel(data) {
-    data.forEach(function(item) {
-        updateElement(item);
-    });
+function updateModel(obj) {
+    app.time = obj.time;
+    app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
+    app.event.rdm = JSON.parse(JSON.stringify(obj.rdm));
 }
 
 function updateElement(str) {
