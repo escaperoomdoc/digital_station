@@ -32,7 +32,7 @@ module.exports = (http, model) =>
 				function response(obj) {
 					answer = {};
 					if (obj.response && obj.response === "true") {
-						answer = JSON.stringify(socket.model.data);						
+						answer = JSON.stringify(socket.model.data);
 					}
 					socket.emit('server2client', answer);
 				}
