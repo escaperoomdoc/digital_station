@@ -1,4 +1,3 @@
-
 module.exports = (http, model) =>
 {
 	const io = require('socket.io')(http);
@@ -32,7 +31,9 @@ module.exports = (http, model) =>
 				function response(obj) {
 					answer = {};
 					if (obj.response && obj.response === "true") {
-						answer = JSON.stringify(socket.model.data);
+						answer = JSON.stringify(socket.model.data, (key, value) => {
+							return (key === 'next' || key === 'wait') ? null : value;
+						})
 					}
 					socket.emit('server2client', answer);
 				}
@@ -71,7 +72,6 @@ module.exports = (http, model) =>
 				console.log(`socket ${socket.id} receive error: ${error}, data=${data}`);
 				text=`{"error":"${error}"`;
 			}
-			socket.emit('server2client', text);
 		});
 	});
 }

@@ -498,7 +498,35 @@
      id="layer1"
      transform="translate(0,-106.49996)">
     <rect
+       id="start"
+		 owner=""
+		 next="engine_ready"
+		 wait=""
+       height="5.2916656"
+       width="42.595798"
+       y="109.30235"
+       x="2.6485014"
+       rx="2"
+       ry="4.3402762"
+       style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#00000b;stroke-width:0.16435091;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+       class="process"
+       inkscape:label=""
+       :class="'flow_'+event.diagram.flow.start.state" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="18.401226"
+       y="112.45533"
+       id="text41-6-6-6-5-9-8-65-2-4"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5"
+         x="18.401226"
+         y="112.45533"
+         style="font-size:2.82222223px;stroke-width:0.26458332">начало</tspan></text>
+    <rect
        id="engine_ready"
+		 owner="tcm"
+		 next="route_in"
        height="5.2916594"
        width="42.595798"
        y="119.8857"
@@ -513,17 +541,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="230.56548"
-       y="126.34371"
-       id="text37"><tspan
-         sodipodi:role="line"
-         id="tspan35"
-         x="230.56548"
-         y="130.20592"
-         style="font-size:4.23333311px;stroke-width:0.26458332" /></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="8.9585905"
        y="123.47649"
        id="text41"><tspan
@@ -534,6 +551,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">приемка локомотива</tspan></text>
     <rect
        id="route_in"
+		 owner="dsp"
+		 next="arrival"		 
        height="5.2916784"
        width="42.595798"
        y="130.46904"
@@ -544,8 +563,21 @@
        class="process"
        inkscape:label=""
        :class="'flow_'+event.diagram.flow.route_in.state" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="11.850681"
+       y="133.99998"
+       id="text41-6"><tspan
+         sodipodi:role="line"
+         id="tspan39-9"
+         x="11.850681"
+         y="133.99998"
+         style="font-size:2.82222223px;stroke-width:0.26458332">маршрут на путь</tspan></text>
     <rect
        id="arrival"
+		 owner="tcm"
+		 next="magistral,documents"		 
        height="5.291657"
        width="42.33334"
        y="141.05238"
@@ -559,17 +591,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="11.850681"
-       y="133.99998"
-       id="text41-6"><tspan
-         sodipodi:role="line"
-         id="tspan39-9"
-         x="11.850681"
-         y="133.99998"
-         style="font-size:2.82222223px;stroke-width:0.26458332">маршрут на путь</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="11.860126"
        y="144.58333"
        id="text41-6-6"><tspan
@@ -580,6 +601,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">заезд под состав</tspan></text>
     <rect
        id="documents"
+		 owner="stc"
+		 next="depart_ready"		 
        height="5.2916689"
        width="42.595798"
        y="151.63571"
@@ -603,6 +626,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">коммерческие документы</tspan></text>
     <rect
        id="magistral"
+		 owner="vcde_h"
+		 next="pressure_head,pressure_tail"
        height="5.2916741"
        width="42.595798"
        y="162.21904"
@@ -613,8 +638,21 @@
        style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#000000;stroke-width:0.16435105;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
        inkscape:label=""
        :class="'flow_'+event.diagram.flow.magistral.state" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="24.040386"
+       y="165.49753"
+       id="text41-6-6-6-8-9-8"><tspan
+         sodipodi:role="line"
+         x="24.040386"
+         y="165.49753"
+         style="font-size:2.82222223px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4784-9">проверка магистрали</tspan></text>
     <rect
        id="pressure_head"
+		 owner="tcm"
+		 next="brakes"
        height="5.2916656"
        width="42.595798"
        y="172.80237"
@@ -625,8 +663,21 @@
        style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#00000b;stroke-width:0.16435091;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
        inkscape:label=""
        :class="'flow_'+event.diagram.flow.pressure_head.state" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="24.323864"
+       y="176.08086"
+       id="text41-6-6-6-8-9-8-2"><tspan
+         sodipodi:role="line"
+         x="24.323864"
+         y="176.08086"
+         style="font-size:2.82222223px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4784-9-1">давление в магистрали (Г)</tspan></text>
     <rect
        id="pressure_tail"
+		 owner="vcde_h"
+		 next="brakes"
        height="5.2916694"
        width="42.595798"
        y="172.80237"
@@ -640,28 +691,6 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="24.040386"
-       y="165.49753"
-       id="text41-6-6-6-8-9-8"><tspan
-         sodipodi:role="line"
-         x="24.040386"
-         y="165.49753"
-         style="font-size:2.82222223px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan4784-9">проверка магистрали</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="24.323864"
-       y="176.08086"
-       id="text41-6-6-6-8-9-8-2"><tspan
-         sodipodi:role="line"
-         x="24.323864"
-         y="176.08086"
-         style="font-size:2.82222223px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan4784-9-1">давление в магистрали (Г)</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="71.476402"
        y="175.98637"
        id="text41-6-6-6-8-9-8-2-3"><tspan
@@ -672,6 +701,8 @@
          id="tspan4784-9-1-5">давление в магистрали (Х)</tspan></text>
     <rect
        id="brakes"
+		 owner="tcm"
+		 next="brakes_head,brakes_tail"
        height="5.2916656"
        width="42.595798"
        y="183.38571"
@@ -695,6 +726,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">торможение</tspan></text>
     <rect
        id="brakes_head"
+		 owner="vcde_g"
+		 next="brakes_release"
        height="5.2916656"
        width="42.595798"
        y="193.96904"
@@ -718,6 +751,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">опробование тормозов (Г)</tspan></text>
     <rect
        id="brakes_tail"
+		 owner="vcde_h"
+		 next="brakes_release"
        height="5.2916656"
        width="42.595798"
        y="193.96904"
@@ -730,6 +765,8 @@
        :class="'flow_'+event.diagram.flow.brakes_tail.state" />
     <rect
        id="brakes_release"
+		 owner="tcm"
+		 next="release_head,release_tail"
        height="5.2916656"
        width="42.595798"
        y="204.55237"
@@ -753,6 +790,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отпуск</tspan></text>
     <rect
        id="release_head"
+		 owner="vcde_g"
+		 next="vu45"
        height="5.2916656"
        width="42.595798"
        y="215.1357"
@@ -776,6 +815,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">проверка колодок (Г)</tspan></text>
     <rect
        id="release_tail"
+		 owner="vcde_h"
+		 next="vu45"
        height="5.2916656"
        width="42.595798"
        y="215.1357"
@@ -799,6 +840,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">проверка колодок (Х)</tspan></text>
     <rect
        id="vu45"
+ 		 owner="tcm"
+		 next="unshoe"
        height="5.2916656"
        width="42.595798"
        y="225.71904"
@@ -822,6 +865,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">передача ВУ-45</tspan></text>
     <rect
        id="unshoe"
+ 		 owner="sig"
+		 next="depart_ready"
        height="5.2916656"
        width="42.595798"
        y="236.30238"
@@ -845,6 +890,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">снятие закрепления</tspan></text>
     <rect
        id="depart_ready"
+ 		 owner="tcm"
+		 next="route_out"
        height="5.2916656"
        width="42.595798"
        y="246.88571"
@@ -868,6 +915,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">готовность отправления</tspan></text>
     <rect
        id="route_out"
+ 		 owner="dsp"
+		 next="departure,accompaniment"
        height="5.2916656"
        width="42.595798"
        y="257.46902"
@@ -891,6 +940,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">маршрут отправления</tspan></text>
     <rect
        id="departure"
+ 		 owner="tcm"
+		 next="finish"
        height="5.2916656"
        width="42.595798"
        y="268.05237"
@@ -914,6 +965,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отправление состава</tspan></text>
     <rect
        id="accompaniment"
+ 		 owner="vcde_g"
+		 next="finish"
        height="5.2916656"
        width="42.595798"
        y="268.05237"
@@ -937,6 +990,8 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">сопровождение состава</tspan></text>
     <rect
        id="finish"
+ 		 owner=""
+		 next=""
        height="5.2916656"
        width="42.595798"
        y="278.63571"
@@ -958,29 +1013,6 @@
          x="18.663677"
          y="281.7887"
          style="font-size:2.82222223px;stroke-width:0.26458332">конец</tspan></text>
-    <rect
-       id="start"
-       height="5.2916656"
-       width="42.595798"
-       y="109.30235"
-       x="2.6485014"
-       rx="2"
-       ry="4.3402762"
-       style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#00000b;stroke-width:0.16435091;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
-       class="process"
-       inkscape:label=""
-       :class="'flow_'+event.diagram.flow.start.state" />
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="18.401226"
-       y="112.45533"
-       id="text41-6-6-6-5-9-8-65-2-4"><tspan
-         sodipodi:role="line"
-         id="tspan39-9-0-5-9-6-8-0-5-5"
-         x="18.401226"
-         y="112.45533"
-         style="font-size:2.82222223px;stroke-width:0.26458332">начало</tspan></text>
     <path
        style="fill:none;stroke:#000001;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
        d="m 24.077633,114.59402 v 5.29166"

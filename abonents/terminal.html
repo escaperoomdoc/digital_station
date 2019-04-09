@@ -2816,9 +2816,14 @@
     <script>
         var socket = io.connect(location.host);
         socket.on('server2client', function(data) {
-            var obj = JSON.parse(data);
-            console.log(obj);
-            updateModel(obj);
+				try {
+					var obj = JSON.parse(data);
+					console.log(obj);
+					updateModel(obj);
+				}
+				catch(error) {
+					console.log('ERROR : ' + error + ' # ' + data);
+				}
         });
         setTimeout(cbSend, 1000);
         function cbSend() {
