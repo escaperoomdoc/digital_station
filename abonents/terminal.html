@@ -2825,10 +2825,14 @@
 					console.log('ERROR : ' + error + ' # ' + data);
 				}
         });
-        setTimeout(cbSend, 1000);
-        function cbSend() {
+        setTimeout(() => {
             socket.emit('client2server', '{"command":"subscribe","name":"terminal","response":"true"}');
-        }
+        }, 1000);        
+		  var counter = 0;
+        setInterval(() => {
+            console.log('uno secundo ' + counter++ );
+        }, 1000);
+        
     </script>
 </body>
 </html>
