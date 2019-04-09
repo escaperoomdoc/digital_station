@@ -374,7 +374,7 @@ function read(){
 function updateModel(obj) {
     app.time = obj.time;
     app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
-    app.event.rdm = JSON.parse(JSON.stringify(obj.rdm));
+    //app.event.rdm = JSON.parse(JSON.stringify(obj.rdm));
 }
 
 function updateElement(str) {
