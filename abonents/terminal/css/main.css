@@ -54,11 +54,18 @@ header {
 
 /* FLOWCHART */
 .process {
-    fill: white !important;
     fill-opacity: 1 !important;
 }
+.flow_idle      { fill: white       !important; }
 .flow_active    { fill: gold        !important; }
 .flow_completed { fill: greenyellow !important; }
+.flow_wait      { animation: flow_wait 1s infinite; }
+@keyframes flow_wait {
+    0% {fill: white;}
+    50% {fill: gold;}
+    100% {fill: white;}
+}
+
 
 /* RDM */
 .light_green  { fill: green       !important; }

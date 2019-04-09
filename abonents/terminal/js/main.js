@@ -372,8 +372,13 @@ function read(){
 }
 
 function updateModel(obj) {
+    obj.flow.forEach(function(item) {
+        let name = item.name;
+        let state = item.state;
+        app.event.diagram.flow[name].state = state;
+    });
     app.time = obj.time;
-    app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
+    //app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
     //app.event.rdm = JSON.parse(JSON.stringify(obj.rdm));
 }
 
