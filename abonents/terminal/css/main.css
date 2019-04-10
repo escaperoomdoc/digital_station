@@ -5,7 +5,8 @@ html {
     font-family: 'Source Sans Pro', sans-serif;
 }
 main > * {
-    background: silver;
+    background: lavender;
+    border-radius: 0.6em;
 }
 main {
     display: grid;
@@ -23,8 +24,10 @@ main {
 }
 
 header p {
-    width: 40%;
-    margin: 1%;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 header {
     grid-area: head;
@@ -33,6 +36,12 @@ header {
     border-radius: 0.6em;
     color: white;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    width: 200px;
     display: flex;
 }
 
@@ -60,6 +69,7 @@ header {
 h3 {
     padding: 0;
     margin: 3px 10px;
+    font-size: 1.05em;
 }
 
 button {

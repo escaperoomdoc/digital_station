@@ -341,6 +341,9 @@ var app = new Vue({
         complete() {
             socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
         },
+        timestep() {
+            socket.emit('client2server', '{"command":"timestep","getmodel":"false"}');
+        },
         reset() {
             socket.emit('client2server', '{"command":"reset","getmodel":"true"}');
         },
@@ -374,7 +377,7 @@ function read(){
 
 function updateModel(obj) {
     /* TIME */
-    app.time = obj.time;
+    app.time = obj.timestring;
 
     /* FLOWCHART */
     obj.flow.forEach(function(item) {
@@ -386,15 +389,15 @@ function updateModel(obj) {
     /* RDM */
     obj.rdm.forEach(function(item) {
         let type = item.type;
-        let object = item.object;
+        let name = item.name;
         let param = item.param;
-        let value = item.value;
+        let state = item.state;
 
         switch (type) {
             case "section": {
                 switch (param) {
                     case "state": {
-                        app.event.rdm[object].state = value;
+                        app.event.rdm[name].state = state;
                         break;
                     }
                 }
@@ -403,7 +406,7 @@ function updateModel(obj) {
             case "switch": {
                 switch (param) {
                     case "show": {
-                        app.event.rdm[object].state = value;
+                        app.event.rdm[name].state = state;
                         break;
                     }
                 }
@@ -412,7 +415,7 @@ function updateModel(obj) {
             case "light": {
                 switch (param) {
                     case "state": {
-                        app.event.rdm[object].state = value;
+                        app.event.rdm[name].state = state;
                         break;
                     }
                 }

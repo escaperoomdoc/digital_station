@@ -9,11 +9,14 @@
 <body>
     <main class="app">
         <header>
-            <p>Станция "Цифровая"</p>
-            <button @click="play" title="play">►</button>
-            <button @click="pause" title="pause" style="padding-bottom: 5px">&#10074&#10074</button>
-            <button @click="complete" title="complete" style="padding-top: 2px; font-weight: bold;">⟳</button>
-            <button @click="reset" title="reset">◼</button>
+            <p>Станция «Цифровая»</p>
+            <div class="menu">
+                <button @click="play" title="play">►</button>
+                <button @click="pause" title="pause" style="padding-bottom: 5px">&#10074&#10074</button>
+                <button @click="complete" title="complete" style="padding-top: 2px; font-weight: bold">⟳</button>
+                <button @click="timestep" title="time step" title="complete" style="font-weight: bold">◔</button>
+                <button @click="reset" title="reset">◼</button>
+            </div>
             <p>{{ time }}</p>
         </header>
         <section class="station">
