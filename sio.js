@@ -53,7 +53,6 @@ module.exports = (http, model) =>
 					}					
 					if (obj.command === 'play') {
 						console.log(`abonent ${abon.name}(${abon.id}) started the flow`);
-						socket.model.reset();
 						socket.model.play();
 						response(obj);
 					}
