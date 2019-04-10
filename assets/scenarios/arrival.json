@@ -1,4 +1,5 @@
 [
+{"time":"00:00:00", "type":"section", "name":"ms_depo", "param":"state", "state":"shunt"},
 {"time":"00:00:00", "type":"section", "name":"ms_5", "param":"state", "state":"shunt"},
 {"time":"00:00:02", "type":"switch", "name":"sw_10p", "param":"show", "state":"off"},
 {"time":"00:00:02", "type":"switch", "name":"sw_10m", "param":"show", "state":"on"},

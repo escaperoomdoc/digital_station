@@ -25,7 +25,7 @@ parseString(rdmxml, (err, result) => {
 		}
 		if (item.$.id.includes("sw_")) {
 			rdm.type = "switch";
-			rdm.show = "on";
+			rdm.param = "show";
 		}
 		if (rdm.type) {
 			rdm.name = item.$.id;
@@ -100,7 +100,7 @@ module.exports.reset = () => {
 	}
 	for(var value of data.rdm) {
 		if (value.type === 'section') value.state = "free";
-		if (value.type === 'switch') value.state = "show";
+		if (value.type === 'switch') value.state = "off";
 		if (value.type === 'light') value.state = "red";
 	}	
 	data.state = "reset";
