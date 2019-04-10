@@ -25,7 +25,7 @@ http.listen(80, () => {
 });
 
 setInterval(() => {
-	model.tick();
+	if (model.data.state === 'play' ) model.tick();
 }, 1000);
 
 

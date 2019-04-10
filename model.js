@@ -108,8 +108,17 @@ module.exports.reset = () => {
 }
 
 module.exports.play = () => {
+	if (data.state === "play") {
+		console.log("error : flow is already playing");
+		return;
+	}
+	if (data.state === "pause") {
+		data.state = "play";
+		return;
+	}	
 	flowGet("start").state = 'active';
 	data.state = "play";
+	data.time = 0;
 }
 
 module.exports.pause = () => {
@@ -200,13 +209,12 @@ function playerStart(scenarioName, time) {
 	if (!scenario) return;
 	scenario.starttime = data.time;
 	scenario.state = "play";
-	playerExecute(scenario);
 	console.log(`start playing scenario : ${scenarioName}`)
 }
 
 function playerExecute(scenario) {
 	for (scenarioitem of scenario.data) {
-		if (scenario.starttime + scenarioitem.time === data.time) {
+		if (scenario.starttime + scenarioitem.timeint === data.time) {
 			for(obj of data.rdm) {
 				if (obj.name === scenarioitem.name) {
 					obj.state = scenarioitem.state;
@@ -218,7 +226,7 @@ function playerExecute(scenario) {
 
 function playerControl() {
 	for (scenario of scenarios) {
-		playerExecute(scenario)
+		if (scenario.state === "play") playerExecute(scenario)
 	}
 }
 
@@ -228,11 +236,11 @@ playerInit();
 // 1 second timer
 module.exports.tick = () => {
 	if (data.state === 'play' || data.state === 'pause') {
-		if (data.state === 'play') data.time ++;
 		var mytime = new Date(Date.UTC(2000, 0, 1, 0, 0, 0, 0));
 		mytime.setSeconds(data.time);
 		data.timestring = mytime.toISOString().substr(11, 8);
 		playerControl(data.timestring);
+		data.time ++;
 	}
 }
 
