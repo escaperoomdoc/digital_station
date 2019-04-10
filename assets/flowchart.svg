@@ -577,7 +577,8 @@
     <rect
        id="arrival"
 		 owner="tcm"
-		 next="magistral,documents"		 
+		 next="magistral,documents"
+		 scenario="arrival"
        height="5.291657"
        width="42.33334"
        y="141.05238"

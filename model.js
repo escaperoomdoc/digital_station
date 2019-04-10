@@ -1,4 +1,4 @@
-//var data = require('./dsm.json');
+
 
 // read rdm.svg
 var data = {
@@ -19,8 +19,14 @@ parseString(rdmxml, (err, result) => {
 	const path = result.svg.g[0].path;
 	for (item of path) {
 		var rdm = {};
-		if (item.$.id.includes("ms_")) rdm.type = "section";
-		if (item.$.id.includes("sw_")) rdm.type = "switch";
+		if (item.$.id.includes("ms_")) {
+			rdm.type = "section";
+			rdm.param = "state";
+		}
+		if (item.$.id.includes("sw_")) {
+			rdm.type = "switch";
+			rdm.show = "on";
+		}
 		if (rdm.type) {
 			rdm.name = item.$.id;
 			data.rdm.push(rdm);
@@ -31,6 +37,7 @@ parseString(rdmxml, (err, result) => {
 		if (item.$.id.includes("ls_")) {
 			rdm.type = "light";
 			rdm.name = item.$.id;
+			rdm.param = "state";
 			data.rdm.push(rdm);
 		}
 	}
@@ -43,6 +50,7 @@ parseString(flowxml, (err, result) => {
 		flow.name = item.$.id;
 		flow.owner = item.$.owner;
 		flow.nextnames = item.$.next.split(',');
+		flow.scenario = item.$.scenario;
 		flow.wait = [];
 		flow.next = [];
 		data.flow.push(flow);
@@ -96,6 +104,7 @@ module.exports.reset = () => {
 		if (value.type === 'light') value.state = "red";
 	}	
 	data.state = "reset";
+	data.timestring = "СТОП";
 }
 
 module.exports.play = () => {
@@ -119,7 +128,10 @@ function completeStage(stage) {
 	stage.state = "completed";
 	for (next of stage.next) {
 		if (next.state === "idle") next.state = "wait";
-		if (waitPreviousCompleted(next)) next.state = "active";
+		if (waitPreviousCompleted(next)) {
+			next.state = "active";
+			onStageActivate(next);
+		}
 	}
 }
 
@@ -138,5 +150,90 @@ module.exports.complete = (stagename) => {
 	}
 }
 
+function onStageActivate(stage) {
+	if (stage.scenario) {
+		playerStart(stage.scenario);
+	}
+}
+
+var scenarios = [];
+function playerReset() {
+	for (scenario of scenarios) {
+		scenario.state = "idle";
+		scenario.starttime = 0;
+	}
+}
+
+function playerInitItem(scenarioName) {
+	scenario = {name: scenarioName, data: require(`./assets/scenarios/${scenarioName}.json`)};
+	scenarios.push(scenario);
+	for (item of scenario.data) {
+		time = item.time.split(":");
+		item.timeint = parseInt(time[0]) * 3600 + parseInt(time[1]) * 60 + parseInt(time[2]);
+	}
+}
+function playerInit() {
+	try {
+		scenarioNames = [
+			"arrival",
+			"transit",
+			"departure"
+		];
+		for(scenarioName of scenarioNames) {
+			playerInitItem(scenarioName);
+		}
+		playerReset();
+	}
+	catch(error) {
+		console.log(error);
+	}
+}
+
+function playerGet(scenarioName) {
+	for (item of scenarios) {
+		if (item.name === scenarioName) return item;
+	}
+}
+
+function playerStart(scenarioName, time) {
+	scenario = playerGet(scenarioName);
+	if (!scenario) return;
+	scenario.starttime = data.time;
+	scenario.state = "play";
+	playerExecute(scenario);
+	console.log(`start playing scenario : ${scenarioName}`)
+}
+
+function playerExecute(scenario) {
+	for (scenarioitem of scenario.data) {
+		if (scenario.starttime + scenarioitem.time === data.time) {
+			for(obj of data.rdm) {
+				if (obj.name === scenarioitem.name) {
+					obj.state = scenarioitem.state;
+				}
+			}				
+		}
+	}
+}
+
+function playerControl() {
+	for (scenario of scenarios) {
+		playerExecute(scenario)
+	}
+}
+
+playerInit();
+
+
+// 1 second timer
+module.exports.tick = () => {
+	if (data.state === 'play' || data.state === 'pause') {
+		if (data.state === 'play') data.time ++;
+		var mytime = new Date(Date.UTC(2000, 0, 1, 0, 0, 0, 0));
+		mytime.setSeconds(data.time);
+		data.timestring = mytime.toISOString().substr(11, 8);
+		playerControl(data.timestring);
+	}
+}
 
 exports.data = data;

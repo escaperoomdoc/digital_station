@@ -30,7 +30,7 @@ module.exports = (http, model) =>
 				obj = JSON.parse(data);
 				function response(obj) {
 					answer = {};
-					if (obj.response && obj.response === "true") {
+					if (obj.getmodel && obj.getmodel === "true") {
 						answer = JSON.stringify(socket.model.data, (key, value) => {
 							return (key === 'next' || key === 'wait') ? null : value;
 						})
@@ -38,32 +38,40 @@ module.exports = (http, model) =>
 					socket.emit('server2client', answer);
 				}
 				if (obj.command) {
+					if (obj.command === 'dummy') {
+						response(obj);
+					}
 					if (obj.command === 'subscribe') {
 						abon.name = obj.name;
 						console.log(`socket ${abon.id} introduced as: ${abon.name}`);
 						response(obj);
 					}
 					if (obj.command === 'reset') {
-						socket.model.reset();
 						console.log(`abonent ${abon.name}(${abon.id}) reset the flow`);
+						socket.model.reset();
 						response(obj);
 					}					
 					if (obj.command === 'play') {
+						console.log(`abonent ${abon.name}(${abon.id}) started the flow`);
 						socket.model.reset();
 						socket.model.play();
-						console.log(`abonent ${abon.name}(${abon.id}) started the flow`);
 						response(obj);
 					}
 					if (obj.command === 'pause') {
-						socket.model.pause();
 						console.log(`abonent ${abon.name}(${abon.id}) paused the flow`);
+						socket.model.pause();
 						response(obj);
 					}					
 					if (obj.command === 'complete') {
+						console.log(`abonent  ${abon.name}(${abon.id}) completed current stage`);
 						var stage = 'any';
 						if (obj.stage) stage = obj.stage;
 						socket.model.complete(stage);
-						console.log(`abonent  ${abon.name}(${abon.id}) completed current stage`);
+						response(obj);
+					}
+					if (obj.command === 'timestep') {
+						console.log(`abonent ${abon.name}(${abon.id}) stepped a time`);
+						socket.model.tick();
 						response(obj);
 					}
 				}
