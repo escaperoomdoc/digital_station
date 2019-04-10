@@ -328,20 +328,21 @@ var app = new Vue({
     el: '.app',
     data: {
         event: JSON.parse(JSON.stringify(defaultRDM)),
-        time: 5
+        time: "idle",
+        abonents: []
     },
     methods: {
         play() {
-            socket.emit('client2server', '{"command":"play","response":"true"}');
+            socket.emit('client2server', '{"command":"play","getmodel":"true"}');
         },
         pause() {
-            socket.emit('client2server', '{"command":"pause","response":"true"}');
+            socket.emit('client2server', '{"command":"pause","getmodel":"true"}');
         },
         complete() {
-            socket.emit('client2server', '{"command":"complete","response":"true"}');
+            socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
         },
         reset() {
-            socket.emit('client2server', '{"command":"reset","response":"true"}');
+            socket.emit('client2server', '{"command":"reset","getmodel":"true"}');
         },
         skip() {
             counter++;
@@ -353,7 +354,7 @@ var app = new Vue({
             this.time = "00:00:00";
         },
     }
-})
+});
 
 var counter = 0;
 var str;
@@ -372,12 +373,61 @@ function read(){
 }
 
 function updateModel(obj) {
+    /* TIME */
+    app.time = obj.time;
+
+    /* FLOWCHART */
     obj.flow.forEach(function(item) {
         let name = item.name;
         let state = item.state;
         app.event.diagram.flow[name].state = state;
     });
-    app.time = obj.time;
+
+    /* RDM */
+    obj.rdm.forEach(function(item) {
+        let type = item.type;
+        let object = item.object;
+        let param = item.param;
+        let value = item.value;
+
+        switch (type) {
+            case "section": {
+                switch (param) {
+                    case "state": {
+                        app.event.rdm[object].state = value;
+                        break;
+                    }
+                }
+                break;
+            }
+            case "switch": {
+                switch (param) {
+                    case "show": {
+                        app.event.rdm[object].state = value;
+                        break;
+                    }
+                }
+                break;
+            }
+            case "light": {
+                switch (param) {
+                    case "state": {
+                        app.event.rdm[object].state = value;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+    });
+
+    /* ABONENTS */
+    app.abonents.splice(0, app.abonents.length);
+    obj.abonents.forEach(function(item) {
+        let name = item.name;
+        app.abonents.push({"name": name});
+    });
+
     //app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
     //app.event.rdm = JSON.parse(JSON.stringify(obj.rdm));
 }
