@@ -328,7 +328,7 @@ var app = new Vue({
     el: '.app',
     data: {
         event: JSON.parse(JSON.stringify(defaultRDM)),
-        time: "idle",
+        time: "00:00:00",
         abonents: []
     },
     methods: {

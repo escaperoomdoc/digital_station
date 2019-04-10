@@ -12,7 +12,7 @@ main {
     width: 98%;
     height: 95vh;
     grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: 45px 1fr 1fr 1fr;
+    grid-template-rows: 46px 1fr 1fr 1fr;
     grid-gap: 15px;
     grid-template-areas:
             "head head head head head head"
@@ -36,6 +36,51 @@ header {
     display: flex;
 }
 
+.abonents ul li {
+    list-style-type: none;
+}
+.abonents ul li:before {
+    color: forestgreen;
+    content: "●";
+    padding: 0;
+    margin: 0;
+    animation: blink_marker 1s infinite;
+}
+
+@keyframes blink_marker {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.abonents ul {
+    padding: 0 10px;
+}
+
+h3 {
+    padding: 0;
+    margin: 3px 10px;
+}
+
+button {
+    background: none;
+    margin: 3px 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+button:active {
+    opacity: 0.6;
+
+}
 
 .station	{grid-area: stat;}
 .process    {grid-area: proc;}

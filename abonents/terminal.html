@@ -9,15 +9,11 @@
 <body>
     <main class="app">
         <header>
-            <p>Станция Гипотетическая-Сортировочная</p>
-            <button @click="play">PLAY</button>
-            <button @click="pause">PAUSE</button>
-            <button @click="complete">COMPLETE</button>
-            <button @click="reset">RESET</button>
-            <input type="file" id="file">
-            <button onclick="read()">
-                Read!
-            </button>
+            <p>Станция "Цифровая"</p>
+            <button @click="play" title="play">►</button>
+            <button @click="pause" title="pause" style="padding-bottom: 5px">&#10074&#10074</button>
+            <button @click="complete" title="complete" style="padding-top: 2px; font-weight: bold;">⟳</button>
+            <button @click="reset" title="reset">◼</button>
             <p>{{ time }}</p>
         </header>
         <section class="station">
@@ -2810,6 +2806,7 @@
         </section>
         <section class="logger">Логгер</section>
         <section class="abonents">
+            <h3>Терминалы</h3>
             <ul>
                 <li v-for = "(abonent, i) in abonents">
                     {{ abonents[i].name }}
