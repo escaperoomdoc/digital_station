@@ -24,4 +24,8 @@ http.listen(80, () => {
 	console.log('HTTP server listening...');
 });
 
+setInterval(() => {
+	model.tick();
+}, 1000);
+
 
