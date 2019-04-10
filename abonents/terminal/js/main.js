@@ -67,6 +67,9 @@ const defaultRDM =  {
         }
     },
     "rdm":{
+        "ms_depo": {
+            "state": "free"
+        },
         "ms_2n": {
             "state": "free"
         },
