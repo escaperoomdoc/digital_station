@@ -342,7 +342,7 @@ var app = new Vue({
             socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
         },
         timestep() {
-            socket.emit('client2server', '{"command":"timestep","getmodel":"false"}');
+            socket.emit('client2server', '{"command":"timestep","getmodel":"true"}');
         },
         reset() {
             socket.emit('client2server', '{"command":"reset","getmodel":"true"}');
