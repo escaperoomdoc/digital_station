@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 0 5%;
+    margin: 0;
+    font-size: 2.3em;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    justify-content: center;
+}
+
+p {
+    padding: 40px;
+    margin: 20px 10%;
+    text-align: center;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    font-size: 1.5em;
+}
+
+main ul li {
+    padding: 0;
+    margin: 20px 0;
+    display: flex;
+    height: 10vh;
+    background-color: lavender;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+
+}
+
+.buttons button {
+    width: 350px;
+    height: 100px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.confirm {
+    background: yellowgreen;
+}
+
+.cancel {
+    background: coral;
+}
