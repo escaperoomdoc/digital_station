@@ -55,6 +55,7 @@ main ul li {
     color: white;
     font-weight: bold;
     font-size: 1.1em;
+    outline: none;
 }
 
 .confirm {
@@ -64,3 +65,36 @@ main ul li {
 .cancel {
     background: coral;
 }
+
+.fake {
+    background: #e9e9e9;
+    color: #a4a4a4 !important;
+}
+
+.submenu-enter-active {
+    animation: submenu-in .5s;
+}
+.submenu-leave-active {
+    animation: submenu-in .2s reverse;
+}
+@keyframes submenu-in {
+    0% {height: 0}
+    100% {height: 290px;}
+}
+
+.list_shunt {
+    background: #fadcdc;
+}
+
+.list_active {
+    animation: list_active 2.5s infinite;
+}
+@keyframes list_active {
+    0% {}
+    5% {}
+    50% {background: #fff17a;}
+    95% {}
+    100% {}
+}
+
+

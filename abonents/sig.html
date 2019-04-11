@@ -9,17 +9,27 @@
 <body>
     <main>
         <ul>
-            <li>1П — Технический осмотр</li>
-            <li>2П — Опробование тормозов</li>
-            <li>3П — Нет данных</li>
-            <li>4П — Нет данных</li>
-            <li>5П — 4564 — Опробование тормозов {{ test }}</li>
+            <div v-for = "(way, i) in ways">
+            <li @click="changeWay(i)" :class="['list_'+ways[i].status, {'list_active': ways[i].active}]">
+                {{ ways[i].way }} — {{ ways[i].stock }}
+            </li>
+                <transition name="submenu">
+                <div v-if="i == selectedWay" style="overflow: hidden">
+                    <p>Подтвердите действие</p>
+                    <div class="buttons" v-if="ways[i].active">
+                        <button class="confirm" @click="confirm">OK</button>
+                        <button class="cancel" @click="cancel">Cancel</button>
+                    </div>
+                    <div class="buttons" v-if="!ways[i].active">
+                        <button class="confirm fake">OK</button>
+                        <button class="cancel fake">Cancel</button>
+                    </div>
+
+                </div>
+                </transition>
+            </div>
         </ul>
-        <p>Подтвердите действие</p>
-        <div class="buttons">
-            <button class="confirm" @click="confirm">OK</button>
-            <button class="cancel" @click="cancel">Cancel</button>
-        </div>
+
     </main>
     <script src="sig/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
