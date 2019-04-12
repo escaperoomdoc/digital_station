@@ -26,21 +26,21 @@ var sig = new Vue({
 });
 
 function updateSigList(obj) {
-    sig.ways.splice(0);
-    obj.abonents.forEach(function(item) {
-        let way    = obj.stocks.way;
+    sig.ways.splice(0, sig.ways.length);
+    obj.stocks.forEach(function(item) {
+        let way = item.way;
         let stock;
         let status;
 
         if (obj.stocks.status !== "") {
-            stock = obj.stocks.stock + " — " + obj.stocks.status;
+            stock = item.stock + " — " + item.status;
             status = "operation";
         }
         else {
-            stock = obj.stocks.stock;
+            stock = item.stock;
             status = "free";
         }
-        let active = obj.stocks.active;
+        let active = item.active;
 
         sig.ways.push({"way": way, "stock": stock, "status": status, "active": active});
     });
