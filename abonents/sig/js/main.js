@@ -29,10 +29,10 @@ function updateSigList(obj) {
     sig.ways.splice(0, sig.ways.length);
     obj.stocks.forEach(function(item) {
         let way = item.way;
-        let stock;
-        let status;
+        let stock = "";
+        let status = "";
 
-        if (obj.stocks.status !== "") {
+        if (!obj.stocks.status) {
             stock = item.stock + " — " + item.status;
             status = "operation";
         }
