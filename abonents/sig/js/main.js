@@ -32,7 +32,7 @@ function updateSigList(obj) {
         let stock = "";
         let status = "";
 
-        if (!obj.stocks.status) {
+        if (!item.status) {
             stock = item.stock + " — " + item.status;
             status = "operation";
         }
