@@ -1,0 +1,5 @@
+[
+{"time":"00:00:00", "type":"section", "name":"ms_3", "param":"state", "state":"shunt"},
+{"time":"00:00:00", "type":"section", "name":"ms_4", "param":"state", "state":"shunt"},
+{"time":"00:00:00", "type":"section", "name":"ms_5", "param":"state", "state":"shunt"}
+]
