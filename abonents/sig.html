@@ -7,11 +7,28 @@
     <script src="sig/js/vue.js"></script>
 </head>
 <body>
+    <header>
+        <div>
+            <div>Станция «Цифровая»</div>
+            <div>00:00:00</div>
+        </div>
+        <div>
+            <div>СТЦ</div>
+            <div>Иванова И. И.</div>
+        </div>
+    </header>
     <main>
         <ul>
+            <li class="list list_header">
+                <div>Путь</div>
+                <div>Состав</div>
+                <div>Статус</div>
+            </li>
             <div v-for = "(way, i) in ways">
-            <li @click="changeWay(i)" :class="['list_'+ways[i].status, {'list_active': ways[i].active}]">
-                {{ ways[i].way }} — {{ ways[i].stock }}
+            <li class="list" @click="changeWay(i)" :class="['list_'+ways[i].status, {'list_active': ways[i].active}]">
+                <div>{{ ways[i].way }}</div>
+                <div>{{ ways[i].stock }}</div>
+                <div></div>
             </li>
                 <transition name="submenu">
                 <div v-if="i == selectedWay" style="overflow: hidden">

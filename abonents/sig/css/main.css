@@ -1,15 +1,35 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
 
-html {
+body {
     font-family: 'Source Sans Pro', sans-serif;
-    padding: 0 5%;
     margin: 0;
     font-size: 2.3em;
 }
 
-body {
+main {
+    padding: 0 5%;
+    padding-top: 10vh;
+
+}
+
+header {
+    position: fixed;
+    height: 10vh;
+    background-color: deepskyblue;
+    width: 100%;
     padding: 0;
     margin: 0;
+    box-shadow: 0 0.1vh 1.4vh 0.3vh grey;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+header div {
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2%;
 }
 
 ul {
@@ -28,16 +48,38 @@ p {
     font-size: 1.5em;
 }
 
-main ul li {
+.list {
     padding: 0;
     margin: 20px 0;
     display: flex;
     height: 10vh;
     background-color: lavender;
     border-radius: 20px;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     font-size: 1.4em;
+}
+
+.list div {
+    display: flex;
+    justify-content: center;
+}
+
+.list div:nth-child(1) {
+    width: 20%;
+}
+.list div:nth-child(2) {
+    width: 20%;
+}
+.list div:nth-child(3) {
+    width: 60%;
+}
+.list_header {
+    background-color: lightgray;
+    color: white;
+    height: 7vh;
+    box-shadow: inset 0vh 0vh 1.5vh 0.3vh grey;
+    margin: 40px 0;
 }
 
 .buttons {

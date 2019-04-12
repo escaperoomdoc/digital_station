@@ -2,11 +2,11 @@ var sig = new Vue({
     el: 'main',
     data: {
         ways: [
-            // { "way": "1П", "stock": "Технический осмотр", "status": "operation", "active": false },
-            // { "way": "2П", "stock": "Опробование тормозов", "status": "operation", "active": false },
-            // { "way": "3П", "stock": "Нет данных", "status": "free", "active": false },
-            // { "way": "4П", "stock": "Нет данных", "status": "free", "active": false },
-            // { "way": "5П", "stock": "4564 — Опробование тормозов", "status": "operation", "active": true }
+            { "way": "1П", "stock": "6368", "status": "operation", "active": false },
+            { "way": "2П", "stock": "8543", "status": "operation", "active": false },
+            { "way": "3П", "stock": "—", "status": "free", "active": false },
+            { "way": "4П", "stock": "—", "status": "free", "active": false },
+            { "way": "5П", "stock": "4564", "status": "operation", "active": true }
         ],
         selectedWay: 100
     },
