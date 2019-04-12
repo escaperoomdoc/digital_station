@@ -4,10 +4,18 @@
 var data = {
 	"state": "none",
 	"time": 0,
-	"abonents" : [],
-	"flow" : [],
-	"rdm" : []
+	"abonents": [],
+	"flow": [],
+	"rdm": [],
+	"stocks": []
 }
+
+// init stocks
+data.stocks.push({way: "1П", stock: "4192", status: "Коммерческий осмотр", active: false});
+data.stocks.push({way: "2П", stock: "5384", status: "Закрепление", active: false});
+data.stocks.push({way: "3П", stock: "", status: "", active: false});
+data.stocks.push({way: "4П", stock: "", status: "", active: false});
+data.stocks.push({way: "5П", stock: "9193", status: "Коммерческий осмотр", active: true});
 
 const fs = require('fs');
 var parseString = require('xml2js').parseString;
@@ -116,9 +124,11 @@ module.exports.play = () => {
 		data.state = "play";
 		return;
 	}	
-	flowGet("start").state = 'active';
+	startStage = flowGet("start");
+	startStage.state = 'active';
 	data.state = "play";
 	data.time = 0;
+	onStageActivate(startStage);
 }
 
 module.exports.pause = () => {
@@ -160,6 +170,8 @@ module.exports.complete = (stagename) => {
 }
 
 function onStageActivate(stage) {
+	data.stocks[4].status = stage.name;
+	data.stocks[4].active = true;
 	if (stage.scenario) {
 		playerStart(stage.scenario);
 	}
@@ -184,8 +196,9 @@ function playerInitItem(scenarioName) {
 function playerInit() {
 	try {
 		scenarioNames = [
-			"arrival",
+			"init",
 			"transit",
+			"arrival",
 			"departure"
 		];
 		for(scenarioName of scenarioNames) {
