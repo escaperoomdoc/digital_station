@@ -39,6 +39,7 @@
             try {
                 var obj = JSON.parse(data);
                 console.log(obj);
+                updateSigList(obj);
             }
             catch(error) {
                 console.log('ERROR : ' + error + ' # ' + data);
