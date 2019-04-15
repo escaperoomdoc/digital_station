@@ -74,6 +74,9 @@ p {
 .list div:nth-child(3) {
     width: 60%;
 }
+.list:not(.list_header) div:nth-child(3) {
+    display: flow-root;
+}
 .list_header {
     background-color: lightgray;
     color: white;

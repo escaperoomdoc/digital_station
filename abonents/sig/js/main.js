@@ -1,14 +1,15 @@
 var sig = new Vue({
-    el: 'main',
+    el: '#app',
     data: {
         ways: [
-            { "way": "1П", "stock": "6368", "status": "operation", "active": false },
-            { "way": "2П", "stock": "8543", "status": "operation", "active": false },
-            { "way": "3П", "stock": "—", "status": "free", "active": false },
-            { "way": "4П", "stock": "—", "status": "free", "active": false },
-            { "way": "5П", "stock": "4564", "status": "operation", "active": true }
+            { "way": "1П", "stock": "6368", "status": "operation", "status_alias": "Технический осмотр", "active": false },
+            { "way": "2П", "stock": "8543", "status": "operation", "status_alias": "Опробование тормозов", "active": false },
+            { "way": "3П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
+            { "way": "4П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
+            { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
-        selectedWay: 100
+        selectedWay: 100,
+        time: "stop"
     },
     methods: {
         confirm() {
@@ -26,23 +27,27 @@ var sig = new Vue({
 });
 
 function updateSigList(obj) {
+    sig.time = obj.time;
     sig.ways.splice(0, sig.ways.length);
     obj.stocks.forEach(function(item) {
         let way = item.way;
         let stock = "";
         let status = "";
+        let status_alias = "";
+        let active = item.active;
 
         if (item.status) {
-            stock = item.stock + " — " + item.status;
+            stock = item.stock;
+            status_alias = item.status;
             status = "operation";
         }
         else {
-            stock = item.stock;
+            stock = "—";
+            status_alias = "Нет данных";
             status = "free";
         }
-        let active = item.active;
 
-        sig.ways.push({"way": way, "stock": stock, "status": status, "active": active});
+        sig.ways.push({"way": way, "stock": stock, "status": status, "status_alias": status_alias, "active": active});
     });
 
 }
