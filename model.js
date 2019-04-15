@@ -7,7 +7,8 @@ var data = {
 	"abonents": [],
 	"flow": [],
 	"rdm": [],
-	"stocks": []
+	"stocks": [],
+	"messages": []
 }
 
 // init stocks
@@ -75,6 +76,26 @@ parseString(flowxml, (err, result) => {
 	}
 })
 
+function prepareMessages() {
+	data.messages.push({dsp:{}});
+	data.messages.push({sig:{}});
+	data.messages.push({vcdeg:{}});
+	data.messages.push({vcdeh:{}});
+	data.messages.push({stc:{}});
+	data.messages.push({tcm:{}});
+}
+prepareMessages();
+
+function resetMessages() {
+	for(item of data.messages) {
+		item.state = "idle";
+		item.time = "00:00:00";
+		item.progress = 0;
+		item.text = "-";
+	}
+}
+resetMessages();
+
 // model API...
 module.exports.abonGet = (id) => {
 	for(var value of data.abonents) {
@@ -113,6 +134,8 @@ module.exports.reset = () => {
 	}	
 	data.state = "reset";
 	data.timestring = "СТОП";
+	data.stocks[4].active = false;
+	resetMessages();
 }
 
 module.exports.play = () => {
@@ -128,6 +151,7 @@ module.exports.play = () => {
 	startStage.state = 'active';
 	data.state = "play";
 	data.time = 0;
+	data.stocks[4].active = true;
 	onStageActivate(startStage);
 }
 
@@ -170,11 +194,14 @@ module.exports.complete = (stagename) => {
 }
 
 function onStageActivate(stage) {
+	// set stock name
 	data.stocks[4].status = stage.name;
 	data.stocks[4].active = true;
+	// init scenario
 	if (stage.scenario) {
 		playerStart(stage.scenario);
 	}
+	// 
 }
 
 var scenarios = [];
