@@ -77,17 +77,20 @@ parseString(flowxml, (err, result) => {
 })
 
 function prepareMessages() {
-	data.messages.push({dsp:{}});
-	data.messages.push({sig:{}});
-	data.messages.push({vcdeg:{}});
-	data.messages.push({vcdeh:{}});
-	data.messages.push({stc:{}});
-	data.messages.push({tcm:{}});
+	data.messages.push({});
+	data.messages.push({});
+	data.messages.push({});
+	data.messages.push({});
+	data.messages.push({});
+	data.messages.push({});
 }
 prepareMessages();
 
 function resetMessages() {
+	const types = ["dsp", "sig", "tcm", "stc", "vcdeh", "vcdeg"];
+	var counter = 0;
 	for(item of data.messages) {
+		item.type = types[counter ++];
 		item.state = "idle";
 		item.time = "00:00:00";
 		item.progress = 0;
@@ -201,7 +204,10 @@ function onStageActivate(stage) {
 	if (stage.scenario) {
 		playerStart(stage.scenario);
 	}
-	// 
+	// generate text
+	for (item of data.messages) {
+		var a = item;
+	}
 }
 
 var scenarios = [];

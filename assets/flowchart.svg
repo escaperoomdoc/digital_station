@@ -629,7 +629,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">коммерческие документы</tspan></text>
     <rect
        id="magistral"
-		 owner="vcde_h"
+		 owner="vcdeh"
 		 next="pressure_head,pressure_tail"
        height="5.2916741"
        width="42.595798"
@@ -679,7 +679,7 @@
          id="tspan4784-9-1">давление в магистрали (Г)</tspan></text>
     <rect
        id="pressure_tail"
-		 owner="vcde_h"
+		 owner="vcdeh"
 		 next="brakes"
        height="5.2916694"
        width="42.595798"
@@ -729,7 +729,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">торможение</tspan></text>
     <rect
        id="brakes_head"
-		 owner="vcde_g"
+		 owner="vcdeg"
 		 next="brakes_release"
        height="5.2916656"
        width="42.595798"
@@ -754,7 +754,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">опробование тормозов (Г)</tspan></text>
     <rect
        id="brakes_tail"
-		 owner="vcde_h"
+		 owner="vcdeh"
 		 next="brakes_release"
        height="5.2916656"
        width="42.595798"
@@ -793,7 +793,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отпуск</tspan></text>
     <rect
        id="release_head"
-		 owner="vcde_g"
+		 owner="vcdeg"
 		 next="vu45"
        height="5.2916656"
        width="42.595798"
@@ -818,7 +818,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">проверка колодок (Г)</tspan></text>
     <rect
        id="release_tail"
-		 owner="vcde_h"
+		 owner="vcdeh"
 		 next="vu45"
        height="5.2916656"
        width="42.595798"
@@ -969,7 +969,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отправление состава</tspan></text>
     <rect
        id="accompaniment"
- 		 owner="vcde_g"
+ 		 owner="vcdeg"
 		 next="finish"
        height="5.2916656"
        width="42.595798"
