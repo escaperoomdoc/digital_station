@@ -9,8 +9,8 @@ var sig = new Vue({
             { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
         message: {
-            "state": "idle",
-            "time": "00:00:00",
+            "state": "active",
+            "time": "5",
             "text": "Текст сообщения"
         },
         selectedWay: NaN,
@@ -19,7 +19,7 @@ var sig = new Vue({
     methods: {
         confirm() {
             socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
-            this.selectedWay = 100;
+            this.selectedWay = NaN;
         },
         cancel() {
 
@@ -30,6 +30,8 @@ var sig = new Vue({
         }
     }
 });
+
+var audio = document.getElementsByTagName("audio")[0];
 
 function updateSigList(obj) {
     sig.time = obj.timestring;
@@ -56,7 +58,18 @@ function updateSigList(obj) {
     });
 
     obj.messages.forEach(function(item) {
-        if (item.type == "sig"){
+        if (item.type === "sig"){
+            if ( (sig.message.state !== "ready") && (item.state === "ready") ||
+                (sig.message.state !== "active") && (item.state === "active"))
+            {
+                sig.ways.forEach(function(item, i) {
+                   if  (item.active === true) {
+                       sig.selectedWay = i;
+                   }
+                });
+                audio.play();
+                navigator.vibrate(1000);
+            }
             sig.message.state = item.state;
             sig.message.time = item.time;
             sig.message.text = item.text;

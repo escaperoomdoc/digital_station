@@ -33,7 +33,7 @@
                     <div>{{ ways[i].way }}</div>
                     <div>{{ ways[i].stock }}</div>
                     <div>{{ ways[i].status_alias }}</div>
-                    <div v-if="ways[i].active && message.state=='active'" class="timeActive">{{ message.time }}</div>
+                    <div v-if="ways[i].active && message.state=='active'" class="timeActive">{{ message.time }} мин</div>
                 </li>
                     <transition name="submenu">
                     <div class="submenu" v-if="i == selectedWay" style="overflow: hidden">
@@ -52,6 +52,11 @@
                 </div>
             </ul>
         </main>
+        <audio>
+            <source src="sig/audio/signal.mp3">
+            <source src="sig/audio/signal.ogg">
+            asdfsf
+        </audio>
     </div>
     <script src="sig/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
