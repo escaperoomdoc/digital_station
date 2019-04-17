@@ -8,18 +8,6 @@ const sio = require('./sio');
 var model = require('./model');
 app.use(express.json());
 
-/*
-// old static html...
-app.get('/abonents/:id', (req, res) => {
-	res.sendFile(`${__dirname}/abonents/${req.params.id}.html`);
-})
-app.get('/*', (req, res) => {
-	res.sendFile(path.join(__dirname, req.url));
-	console.log('transfered file ' + req.url);
-})
-*/
-
-
 // new template system...
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -49,5 +37,4 @@ http.listen(80, () => {
 setInterval(() => {
 	if (model.data.state === 'play' ) model.tick();
 }, 1000);
-
 
