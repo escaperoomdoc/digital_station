@@ -39,7 +39,8 @@
                     <div class="submenu" v-if="i == selectedWay" style="overflow: hidden">
                         <p v-if="ways[i].status=='operation' && !ways[i].active">Работают другие бригады</p>
                         <p v-if="ways[i].status=='free'">Работы не ведутся</p>
-                        <p v-if="ways[i].active">{{ message.text }}</p>
+                        <p v-if="ways[i].active && message.state=='idle'">Ожидание команды...</p>
+                        <p v-if="ways[i].active && message.state!='idle'">{{ message.text }}</p>
                         <div class="buttons" v-if="ways[i].active && message.state=='active'">
                             <button class="confirm" @click="confirm">OK</button>
                             <button class="cancel" @click="cancel">Cancel</button>

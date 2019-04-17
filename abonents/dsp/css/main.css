@@ -117,7 +117,7 @@ button:active {
 .flow_wait      { animation: flow_wait 1s infinite; }
 @keyframes flow_wait {
     0% {fill: white;}
-    50% {fill: gold;}
+    50% {fill: #ffe666;}
     100% {fill: white;}
 }
 

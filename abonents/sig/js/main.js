@@ -9,7 +9,7 @@ var sig = new Vue({
             { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
         message: {
-            "state": "active",
+            "state": "idle",
             "time": "00:00:00",
             "text": "Текст сообщения"
         },
