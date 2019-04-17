@@ -8,7 +8,12 @@ var sig = new Vue({
             { "way": "4П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
             { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
-        selectedWay: 100,
+        message: {
+            "state": "active",
+            "time": "00:00:00",
+            "text": "Текст сообщения"
+        },
+        selectedWay: NaN,
         time: "stop"
     },
     methods: {
@@ -20,14 +25,14 @@ var sig = new Vue({
 
         },
         changeWay(i) {
-            if (this.selectedWay == i) this.selectedWay = 100;
+            if (this.selectedWay == i) this.selectedWay = NaN;
             else this.selectedWay = i;
         }
     }
 });
 
 function updateSigList(obj) {
-    sig.time = obj.time;
+    sig.time = obj.timestring;
     sig.ways.splice(0, sig.ways.length);
     obj.stocks.forEach(function(item) {
         let way = item.way;
@@ -50,4 +55,11 @@ function updateSigList(obj) {
         sig.ways.push({"way": way, "stock": stock, "status": status, "status_alias": status_alias, "active": active});
     });
 
+    obj.messages.forEach(function(item) {
+        if (item.type == "sig"){
+            sig.message.state = item.state;
+            sig.message.time = item.time;
+            sig.message.time = item.text;
+        }
+    });
 }

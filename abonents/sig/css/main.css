@@ -8,13 +8,13 @@ body {
 
 main {
     padding: 0 5%;
-    padding-top: 10vh;
+    padding-top: 9vh;
 
 }
 
 header {
     position: fixed;
-    height: 10vh;
+    height: 9vh;
     background-color: deepskyblue;
     width: 100%;
     padding: 0;
@@ -25,7 +25,7 @@ header {
     font-weight: bold;
 }
 header div {
-    height: 5vh;
+    height: 4.5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,12 +40,16 @@ ul {
 }
 
 p {
-    padding: 40px;
+    display: flex;
+    padding: 0px 40px;
     margin: 20px 10%;
+    min-height: 149px;
     text-align: center;
     border-left: 1px solid black;
     border-right: 1px solid black;
     font-size: 1.5em;
+    align-items: center;
+    justify-content: center;
 }
 
 .list {
@@ -53,11 +57,12 @@ p {
     margin: 20px 0;
     display: flex;
     height: 10vh;
-    background-color: lavender;
+    background-color: #e6e6e6;
     border-radius: 20px;
     justify-content: space-around;
     align-items: center;
     font-size: 1.4em;
+    position: relative;
 }
 
 .list div {
@@ -116,6 +121,17 @@ p {
     color: #a4a4a4 !important;
 }
 
+.submenu {
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.submenu p {
+
+}
+
 .submenu-enter-active {
     animation: submenu-in .5s;
 }
@@ -128,13 +144,17 @@ p {
 }
 
 .list_operation {
-    background: #fadcdc;
+    background: lavender;
 }
 
 .list_active {
-    animation: list_active 2.5s infinite;
+    border: 7px solid deepskyblue;
 }
-@keyframes list_active {
+
+.list_ready_state {
+    animation: list_ready 2.5s infinite;
+}
+@keyframes list_ready {
     0% {}
     5% {}
     50% {background: #fff17a;}
@@ -142,4 +162,14 @@ p {
     100% {}
 }
 
+.list_active_state {
+    background: #fff17a;
+}
+
+.timeActive {
+    position: absolute;
+    right: 3px;
+    top: 0px;
+    font-size: 0.8em;
+}
 

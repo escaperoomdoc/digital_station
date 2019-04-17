@@ -26,28 +26,30 @@
                     <div>Статус</div>
                 </li>
                 <div v-for = "(way, i) in ways">
-                <li class="list" @click="changeWay(i)" :class="['list_'+ways[i].status, {'list_active': ways[i].active}]">
+                <li class="list" @click="changeWay(i)" :class="['list_'+ways[i].status,
+                                                               {'list_active': ways[i].active},
+                                                               {'list_ready_state': ways[i].active && message.state=='ready'},
+                                                               {'list_active_state': ways[i].active && message.state=='active'}]">
                     <div>{{ ways[i].way }}</div>
                     <div>{{ ways[i].stock }}</div>
                     <div>{{ ways[i].status_alias }}</div>
+                    <div v-if="ways[i].active && message.state=='active'" class="timeActive">{{ message.time }}</div>
                 </li>
                     <transition name="submenu">
-                    <div v-if="i == selectedWay" style="overflow: hidden">
-                        <p>Подтвердите действие</p>
-                        <div class="buttons" v-if="ways[i].active">
+                    <div class="submenu" v-if="i == selectedWay" style="overflow: hidden">
+                        <p v-if="ways[i].status=='operation' && !ways[i].active">Работают другие бригады</p>
+                        <p v-if="ways[i].status=='free'">Работы не ведутся</p>
+                        <p v-if="ways[i].active">{{ message.text }}</p>
+                        <div class="buttons" v-if="ways[i].active && message.state=='active'">
                             <button class="confirm" @click="confirm">OK</button>
                             <button class="cancel" @click="cancel">Cancel</button>
                         </div>
-                        <div class="buttons" v-if="!ways[i].active">
-                            <button class="confirm fake">OK</button>
-                            <button class="cancel fake">Cancel</button>
-                        </div>
+
 
                     </div>
                     </transition>
                 </div>
             </ul>
-
         </main>
     </div>
     <script src="sig/js/main.js"></script>
