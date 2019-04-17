@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+html {
+    overflow: hidden;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+main > * {
+    background: lavender;
+    border-radius: 0.6em;
+}
+main {
+    display: grid;
+    width: 98%;
+    height: 95vh;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 46px 1fr 1fr 1fr;
+    grid-gap: 15px;
+    grid-template-areas:
+            "head head head head head head"
+            "stat stat stat stat proc proc"
+            "stat stat stat stat proc proc"
+            "abon logg logg logg proc proc";
+    margin: 0 auto;
+}
+
+header p {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header {
+    grid-area: head;
+    background-color: deepskyblue;
+    font-size: 1em;
+    border-radius: 0.6em;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    width: 200px;
+    display: flex;
+}
+
+.abonents ul li, .logger ul li {
+    list-style-type: none;
+}
+.abonents ul li:before {
+    color: forestgreen;
+    content: "●";
+    padding: 0;
+    margin: 0;
+    animation: blink_marker 1s infinite;
+}
+
+.logger ul {
+    padding: 5px;
+}
+
+.logger ul li {
+    display: flex;
+}
+
+.logger ul li div:nth-child(1) {
+    display: block;
+    margin-right: 20px;
+    min-width: 50px;
+}
+
+@keyframes blink_marker {
+    0% {opacity: 1;}
+    50% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.abonents ul {
+    padding: 0 10px;
+}
+
+h3 {
+    padding: 0;
+    margin: 3px 10px;
+    font-size: 1.05em;
+}
+
+button {
+    background: none;
+    margin: 3px 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: none;
+}
+
+button:active {
+    opacity: 0.6;
+
+}
+
+.station	{grid-area: stat;}
+.process    {grid-area: proc;}
+.abonents 	{grid-area: abon;}
+.logger     {grid-area: logg;}
+
+.station svg {
+    width: 100% !important;
+    height: 120% !important;
+}
+
+.process svg {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* FLOWCHART */
+.process {
+    fill-opacity: 1 !important;
+}
+.flow_idle      { fill: white       !important; }
+.flow_active    { fill: gold        !important; }
+.flow_completed { fill: greenyellow !important; }
+.flow_wait      { animation: flow_wait 1s infinite; }
+@keyframes flow_wait {
+    0% {fill: white;}
+    50% {fill: #ffea80;}
+    100% {fill: white;}
+}
+
+
+/* RDM */
+.light_green  { fill: green       !important; }
+.light_red    { fill: red         !important; }
+.light_blue   { fill: blue        !important; }
+.light_white  { fill: floralwhite !important; }
+.light_yellow { fill: yellow      !important; }
+
+.section_free  { stroke: black !important; }
+.section_shunt { stroke: red !important; }
+.section_route { stroke: yellow !important; }
+
+.switch_on  { display: inline; }
+.switch_off { display: none; }
+
+/* LOGGER */
+.logger_ready { font-style: italic; }
+.logger_active { font-weight: bold; }
+
+
+
+
+

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>mobile</title>
+    <link rel="stylesheet" href="mobile/css/main.css">
+    <script src="libs/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div>
+                <div>Станция «Цифровая»</div>
+                <div>{{ time }}</div>
+            </div>
+            <div>
+                <div>{{ name }}</div>
+                <div>{{ fio }}</div>
+            </div>
+        </header>
+        <main>
+            <ul>
+                <li class="list list_header">
+                    <div>Путь</div>
+                    <div>Состав</div>
+                    <div>Статус</div>
+                </li>
+                <div v-for = "(way, i) in ways">
+                <li class="list" @click="changeWay(i)" :class="['list_'+ways[i].status,
+                                                               {'list_active': ways[i].active},
+                                                               {'list_ready_state': ways[i].active && message.state=='ready'},
+                                                               {'list_active_state': ways[i].active && message.state=='active'}]">
+                    <div>{{ ways[i].way }}</div>
+                    <div>{{ ways[i].stock }}</div>
+                    <div>{{ ways[i].status_alias }}</div>
+                    <div v-if="ways[i].active && message.state=='active'" class="timeActive">{{ message.time }} мин</div>
+                </li>
+                    <transition name="submenu">
+                    <div class="submenu" v-if="i == selectedWay" style="overflow: hidden">
+                        <p v-if="ways[i].status=='operation' && !ways[i].active">Работают другие бригады</p>
+                        <p v-if="ways[i].status=='free'">Работы не ведутся</p>
+                        <p v-if="ways[i].active && message.state=='idle'">Ожидание команды...</p>
+                        <p v-if="ways[i].active && message.state!='idle'">{{ message.text }}</p>
+                        <div class="buttons" v-if="ways[i].active && message.state=='active'">
+                            <button class="confirm" @click="confirm">OK</button>
+                            <button class="cancel" @click="cancel">Cancel</button>
+                        </div>
+
+
+                    </div>
+                    </transition>
+                </div>
+            </ul>
+        </main>
+        <audio>
+            <source src="mobile/audio/signal.mp3">
+            <source src="mobile/audio/signal.ogg">
+        </audio>
+    </div>
+    <script src="mobile/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+    <script>
+        var socket = io.connect(location.host);
+        socket.on('server2client', function(data) {
+            try {
+                var obj = JSON.parse(data);
+                console.log(obj);
+                updateList(obj, "<%=user %>");
+            }
+            catch(error) {
+                console.log('ERROR : ' + error + ' # ' + data);
+            }
+        });
+        setTimeout(() => {
+            socket.emit('client2server', '{"command":"subscribe","name":"<%=user %>","getmodel":"true"}');
+        }, 1000);
+        setInterval(() => {
+            socket.emit('client2server', '{"command":"dummy","getmodel":"true"}');
+        }, 1000);
+    </script>
+</body>
+</html>

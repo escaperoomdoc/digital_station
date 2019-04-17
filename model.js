@@ -92,13 +92,18 @@ messagesPrepare();
 
 function messagesReset() {
 	const types = ["dsp", "sig", "tcm", "stc", "vcdeh", "vcdeg"];
+	const names = ["ДСП", "СИГ", "ТЧМ", "СТЦ", "ВЧДЭ-Х", "ВЧДЭ-Г"];
+	const fios = ["Долганюк С.И.", "Савицкий А.Г.", "Козадаев Р.С.", "Комарова Е.Е.", "Бодров Б.Л.", "Ильичев М.В."];
 	var counter = 0;
 	for(item of data.messages) {
-		item.type = types[counter ++];
+		item.type = types[counter];
+		item.name = names[counter];
+		item.fio = fios[counter];
 		item.state = "idle";
 		item.time = "00:00:00";
 		item.progress = 0;
 		item.text = "-";
+		counter ++
 	}
 }
 messagesReset();
@@ -192,7 +197,6 @@ function anyOfPreviousActive(stage) {
 function completeStage(stage) {
 	stage.state = "completed";
 	for (next of stage.next) {
-		if (next.state === "idle") next.state = "wait";
 		if (waitPreviousCompleted(next)) {
 			next.state = "active";
 			onStageActivate(next);
@@ -215,26 +219,35 @@ module.exports.complete = (stagename) => {
 	}
 }
 
-function onStageActivate(stage) {
+function onStageActivate(stageNew) {
 	// set stock name
-	data.stocks[4].status = stage.epoch;
+	if (stageNew.epoch !== "?") data.stocks[4].status = stageNew.epoch;
 	data.stocks[4].active = true;
 	// init scenario
-	if (stage.scenario) {
-		playerStart(stage.scenario);
+	if (stageNew.scenario) {
+		playerStart(stageNew.scenario);
+	}
+	// mark next stages as waiting
+	for (next of stageNew.next) {
+		if(next.state === "idle") next.state = "wait";
 	}
 	// generate messages
+	for (var message of data.messages) {
+		message.state = "idle";
+	}
 	for (var stage of data.flow) {
+		message = messagesGet(stage.owner);
+		if (!message) continue;
 		if (stage.state === "active") {
-			mesOwner = messagesGet(stage.owner);
-			mesOwner.state = "active";
-			mesOwner.text = stage.active;
-			mesOwner.time = stage.time;
+			message.state = "active";
+			message.text = stage.active;
+			message.time = stage.time;
 		}
 		if (stage.state === "idle" || stage.state === "wait") {
 			if ( anyOfPreviousActive(stage) ) {
-				mesOwner.state = "ready";
-				mesOwner.text = stage.ready;
+				message = messagesGet(stage.owner);
+				message.state = "ready";
+				message.text = stage.ready;
 			}
 		}
 	}
