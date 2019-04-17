@@ -115,6 +115,30 @@ function messagesGet(typeName) {
 	return null;
 }
 
+function messagesUpdate() {
+	// generate messages
+	for (var message of data.messages) {
+		message.state = "idle";
+	}
+	for (var stage of data.flow) {
+		message = messagesGet(stage.owner);
+		if (!message) continue;
+		if (message.state != "idle") continue;
+		if (stage.state === "active") {
+			message.state = "active";
+			message.text = stage.active;
+			message.time = stage.time;
+		}
+		if (stage.state === "idle" || stage.state === "wait") {
+			if ( anyOfPreviousActive(stage) ) {
+				message = messagesGet(stage.owner);
+				message.state = "ready";
+				message.text = stage.ready;
+			}
+		}
+	}
+}
+
 // model API...
 module.exports.abonGet = (id) => {
 	for(var value of data.abonents) {
@@ -173,6 +197,7 @@ module.exports.play = () => {
 	data.time = 0;
 	data.stocks[4].active = true;
 	onStageActivate(startStage);
+	messagesUpdate();
 }
 
 module.exports.pause = () => {
@@ -202,20 +227,17 @@ function completeStage(stage) {
 			onStageActivate(next);
 		}
 	}
+	messagesUpdate();
 }
 
-module.exports.complete = (stagename) => {
-	if (stagename=="any") {
-		for(var stage of data.flow) {
-			if(stage.state === "active") {
+module.exports.complete = (abonName) => {
+	for(var stage of data.flow) {
+		if(stage.state === "active") {
+			if (abonName === "dsp" || stage.owner === abonName) {
 				completeStage(stage);
 				break;
 			}
 		}
-	}
-	else {
-		stage = flowGet(stagename);
-		if (stage && stage.state === "active") completeStage(stage);
 	}
 }
 
@@ -230,26 +252,6 @@ function onStageActivate(stageNew) {
 	// mark next stages as waiting
 	for (next of stageNew.next) {
 		if(next.state === "idle") next.state = "wait";
-	}
-	// generate messages
-	for (var message of data.messages) {
-		message.state = "idle";
-	}
-	for (var stage of data.flow) {
-		message = messagesGet(stage.owner);
-		if (!message) continue;
-		if (stage.state === "active") {
-			message.state = "active";
-			message.text = stage.active;
-			message.time = stage.time;
-		}
-		if (stage.state === "idle" || stage.state === "wait") {
-			if ( anyOfPreviousActive(stage) ) {
-				message = messagesGet(stage.owner);
-				message.state = "ready";
-				message.text = stage.ready;
-			}
-		}
 	}
 }
 

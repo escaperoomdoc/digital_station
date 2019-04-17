@@ -337,19 +337,19 @@ var app = new Vue({
     },
     methods: {
         play() {
-            socket.emit('client2server', '{"command":"play","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"play"}');
         },
         pause() {
-            socket.emit('client2server', '{"command":"pause","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"pause"}');
         },
         complete() {
-            socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"complete"}');
         },
         timestep() {
-            socket.emit('client2server', '{"command":"timestep","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"timestep"}');
         },
         reset() {
-            socket.emit('client2server', '{"command":"reset","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"reset"}');
         },
         skip() {
             counter++;

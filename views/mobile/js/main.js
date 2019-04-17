@@ -20,7 +20,7 @@ var mobile = new Vue({
     },
     methods: {
         confirm() {
-            socket.emit('client2server', '{"command":"complete","getmodel":"true"}');
+            socket.emit('client2server', '{"command":"complete"}');
             this.selectedWay = NaN;
         },
         cancel() {

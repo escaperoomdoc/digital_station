@@ -71,11 +71,8 @@
                 console.log('ERROR : ' + error + ' # ' + data);
             }
         });
-        setTimeout(() => {
-            socket.emit('client2server', '{"command":"subscribe","name":"<%=user %>","getmodel":"true"}');
-        }, 1000);
         setInterval(() => {
-            socket.emit('client2server', '{"command":"dummy","getmodel":"true"}');
+            socket.emit('client2server', '{"name":"<%=user %>"}');
         }, 1000);
     </script>
 </body>
