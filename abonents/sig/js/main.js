@@ -59,7 +59,7 @@ function updateSigList(obj) {
         if (item.type == "sig"){
             sig.message.state = item.state;
             sig.message.time = item.time;
-            sig.message.time = item.text;
+            sig.message.text = item.text;
         }
     });
 }
