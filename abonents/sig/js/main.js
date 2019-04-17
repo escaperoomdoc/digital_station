@@ -2,19 +2,21 @@ var sig = new Vue({
     el: '#app',
     data: {
         ways: [
-            { "way": "1П", "stock": "6368", "status": "operation", "status_alias": "Технический осмотр", "active": false },
-            { "way": "2П", "stock": "8543", "status": "operation", "status_alias": "Опробование тормозов", "active": false },
-            { "way": "3П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
-            { "way": "4П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
-            { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
+            // { "way": "1П", "stock": "6368", "status": "operation", "status_alias": "Технический осмотр", "active": false },
+            // { "way": "2П", "stock": "8543", "status": "operation", "status_alias": "Опробование тормозов", "active": false },
+            // { "way": "3П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
+            // { "way": "4П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
+            // { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
         message: {
-            "state": "active",
-            "time": "5",
-            "text": "Текст сообщения"
+            // "state": "active",
+            // "time": "5",
+            // "text": "Текст сообщения"
         },
         selectedWay: NaN,
-        time: "stop"
+        time: "СТОП",
+        name: "Должность",
+        fio: "ФИО"
     },
     methods: {
         confirm() {
@@ -75,4 +77,7 @@ function updateSigList(obj) {
             sig.message.text = item.text;
         }
     });
+
+    sig.fio = obj.messages[1].fio;
+    sig.name = obj.messages[1].name;
 }

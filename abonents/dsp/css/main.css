@@ -45,7 +45,7 @@ header {
     display: flex;
 }
 
-.abonents ul li {
+.abonents ul li, .logger ul li {
     list-style-type: none;
 }
 .abonents ul li:before {
@@ -54,6 +54,20 @@ header {
     padding: 0;
     margin: 0;
     animation: blink_marker 1s infinite;
+}
+
+.logger ul {
+    padding: 5px;
+}
+
+.logger ul li {
+    display: flex;
+}
+
+.logger ul li div:nth-child(1) {
+    display: block;
+    margin-right: 20px;
+    min-width: 50px;
 }
 
 @keyframes blink_marker {
@@ -135,6 +149,10 @@ button:active {
 
 .switch_on  { display: inline; }
 .switch_off { display: none; }
+
+/* LOGGER */
+.logger_ready { font-style: italic; }
+.logger_active { font-weight: bold; }
 
 
 

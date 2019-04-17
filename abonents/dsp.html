@@ -2812,7 +2812,15 @@
             </svg>
 
         </section>
-        <section class="logger">Логгер</section>
+        <section class="logger">
+			<h3>Операции</h3>
+			<ul>
+				<li v-for="string in logger">
+					<div>{{ string.name }}: </div>
+					<div :class="'logger_'+string.state">{{ string.text }}</div>
+				</li>
+			</ul>
+		</section>
         <section class="abonents">
             <h3>Терминалы</h3>
             <ul>

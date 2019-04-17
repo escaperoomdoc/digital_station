@@ -332,7 +332,8 @@ var app = new Vue({
     data: {
         event: JSON.parse(JSON.stringify(defaultRDM)),
         time: "00:00:00",
-        abonents: []
+        abonents: [],
+        logger: []
     },
     methods: {
         play() {
@@ -432,6 +433,17 @@ function updateModel(obj) {
     obj.abonents.forEach(function(item) {
         let name = item.name;
         app.abonents.push({"name": name});
+    });
+
+    /* LOGGER */
+    app.logger.splice(0, app.logger.length);
+    obj.messages.forEach(function(item) {
+        let name = item.name;
+        let state = item.state;
+        let text = "";
+        if (state === "idle") text = "В ожидании...";
+        else text = item.text;
+        app.logger.push({"name": name, "text": text, "state": state});
     });
 
     //app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));
