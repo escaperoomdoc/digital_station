@@ -499,9 +499,9 @@
      transform="translate(0,-106.49996)">
     <rect
        id="start"
+		 epoch="Заезд под состав"
 		 owner=""
 		 next="engine_ready"
-		 wait=""
 		 scenario="init"
        height="5.2916656"
        width="42.595798"
@@ -526,8 +526,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">начало</tspan></text>
     <rect
        id="engine_ready"
+		 epoch="Заезд под состав"
 		 owner="tcm"
 		 next="route_in"
+		 ready="Подготовьтесь к приемке локомотива"
+		 active="Подтвердите факт приемки локомотива"
+		 time="15"
        height="5.2916594"
        width="42.595798"
        y="119.8857"
@@ -552,8 +556,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">приемка локомотива</tspan></text>
     <rect
        id="route_in"
+		 epoch="Заезд под состав"
 		 owner="dsp"
 		 next="arrival"
+		 ready="Подготовьтесь к заданию маршрута под состав"
+		 active="Необходимо задать маршрут локомотиву под состав"
+		 time="5"		 
 		 scenario="transit"
        height="5.2916784"
        width="42.595798"
@@ -578,9 +586,13 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">маршрут на путь</tspan></text>
     <rect
        id="arrival"
+		 epoch="Заезд под состав"
 		 owner="tcm"
 		 next="magistral,documents"
 		 scenario="arrival"
+		 ready="Внимание! скоро будет задан машрут под состав"
+		 active="Следуйте под состав, сцепитесь и подтвердите выполнение"
+		 time="15"
        height="5.291657"
        width="42.33334"
        y="141.05238"
@@ -604,8 +616,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">заезд под состав</tspan></text>
     <rect
        id="documents"
+		 epoch="?"
 		 owner="stc"
-		 next="depart_ready"		 
+		 next="depart_ready"
+		 ready="Приготовьтесь! локомотив выехал из депо"
+		 active="Передайте документы машинисту и подтвердите выполнение"
+		 time="30"		 
        height="5.2916689"
        width="42.595798"
        y="151.63571"
@@ -629,8 +645,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">коммерческие документы</tspan></text>
     <rect
        id="magistral"
+		 epoch="Опробование тормозов"
 		 owner="vcdeh"
 		 next="pressure_head,pressure_tail"
+		 ready="Приготовьтесь! локомотив выехал из депо"
+		 active="Откройте концевой кран и подтвердите наличие давления в магистрали"
+		 time="5"		 
        height="5.2916741"
        width="42.595798"
        y="162.21904"
@@ -654,8 +674,12 @@
          id="tspan4784-9">проверка магистрали</tspan></text>
     <rect
        id="pressure_head"
+		 epoch="Опробование тормозов"
 		 owner="tcm"
 		 next="brakes"
+		 ready="Внимание! начата процедура проверки магистрали"
+		 active="Подтвердите, что по приборам давление в магистрали соответствует нормативам"
+		 time="3"		 
        height="5.2916656"
        width="42.595798"
        y="172.80237"
@@ -679,8 +703,12 @@
          id="tspan4784-9-1">давление в магистрали (Г)</tspan></text>
     <rect
        id="pressure_tail"
+		 epoch="Опробование тормозов"
 		 owner="vcdeh"
 		 next="brakes"
+		 ready="Внимание! начата процедура проверки магистрали"
+		 active="Подтвердите, что по манометру давление в магистрали соответствует нормативам"
+		 time="3"		 
        height="5.2916694"
        width="42.595798"
        y="172.80237"
@@ -704,8 +732,12 @@
          id="tspan4784-9-1-5">давление в магистрали (Х)</tspan></text>
     <rect
        id="brakes"
+		 epoch="Опробование тормозов"
 		 owner="tcm"
 		 next="brakes_head,brakes_tail"
+		 ready="Внимание! начата процедура проверки магистрали"
+		 active="Осуществите процедуру торможения и подтвердите выполнение"
+		 time="3"
        height="5.2916656"
        width="42.595798"
        y="183.38571"
@@ -729,8 +761,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">торможение</tspan></text>
     <rect
        id="brakes_head"
+		 epoch="Опробование тормозов"
 		 owner="vcdeg"
 		 next="brakes_release"
+		 ready="Внимание! подготовьтесь к осмотру тормозов состава"
+		 active="Проведите осмотр тормозов состава и подтвердите исправность"
+		 time="15"
        height="5.2916656"
        width="42.595798"
        y="193.96904"
@@ -754,8 +790,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">опробование тормозов (Г)</tspan></text>
     <rect
        id="brakes_tail"
+		 epoch="Опробование тормозов"
 		 owner="vcdeh"
 		 next="brakes_release"
+		 ready="Внимание! подготовьтесь к осмотру тормозов состава"
+		 active="Проведите осмотр тормозов состава и подтвердите исправность"
+		 time="15"
        height="5.2916656"
        width="42.595798"
        y="193.96904"
@@ -768,8 +808,12 @@
        :class="'flow_'+event.diagram.flow.brakes_tail.state" />
     <rect
        id="brakes_release"
+		 epoch="Опробование тормозов"
 		 owner="tcm"
 		 next="release_head,release_tail"
+		 ready="Внимание! подготовьтесь к отпуску тормозов состава"
+		 active="Осуществите процедуру отпуска тормозов состава и подтвердите выполнение"
+		 time="15"		 
        height="5.2916656"
        width="42.595798"
        y="204.55237"
@@ -793,8 +837,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отпуск</tspan></text>
     <rect
        id="release_head"
+		 epoch="Опробование тормозов"
 		 owner="vcdeg"
 		 next="vu45"
+		 ready="Внимание! подготовьтесь к осмотру тормозов состава"
+		 active="Проведите осмотр тормозов состава и подтвердите исправность"
+		 time="15"
        height="5.2916656"
        width="42.595798"
        y="215.1357"
@@ -818,8 +866,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">проверка колодок (Г)</tspan></text>
     <rect
        id="release_tail"
+		 epoch="Опробование тормозов"
 		 owner="vcdeh"
 		 next="vu45"
+		 ready="Внимание! подготовьтесь к осмотру тормозов состава"
+		 active="Проведите осмотр тормозов состава и подтвердите исправность"
+		 time="15"
        height="5.2916656"
        width="42.595798"
        y="215.1357"
@@ -843,8 +895,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">проверка колодок (Х)</tspan></text>
     <rect
        id="vu45"
+		 epoch="Опробование тормозов"
  		 owner="tcm"
 		 next="unshoe"
+		 ready="Внимание! подготовьтесь получение справки ВУ-45"
+		 active="Подтвердите получение справки ВУ-45"
+		 time="5"
        height="5.2916656"
        width="42.595798"
        y="225.71904"
@@ -868,8 +924,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">передача ВУ-45</tspan></text>
     <rect
        id="unshoe"
+		 epoch="Снятие закрепления"
  		 owner="sig"
 		 next="depart_ready"
+		 ready="Внимание! приготовьтесь к процедуре снятия закрепления"
+		 active="Снимите закрепление и подтвердите выполенение"
+		 time="10"
        height="5.2916656"
        width="42.595798"
        y="236.30238"
@@ -893,8 +953,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">снятие закрепления</tspan></text>
     <rect
        id="depart_ready"
+		 epoch="Отправление"
  		 owner="tcm"
 		 next="route_out"
+		 ready="Внимание! приготовьтесь к начале процедуры отправления"
+		 active="Подтвердите получение всех документов и готовность к отправлению"
+		 time="5"
        height="5.2916656"
        width="42.595798"
        y="246.88571"
@@ -918,8 +982,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">готовность отправления</tspan></text>
     <rect
        id="route_out"
+		 epoch="Отправление"
  		 owner="dsp"
 		 next="departure,accompaniment"
+		 ready="Внимание! Состав скоро будет готов к отправлению"
+		 active="Задайте маршрут отправления и подтвердите выполнение"
+		 time="5"
        height="5.2916656"
        width="42.595798"
        y="257.46902"
@@ -943,9 +1011,13 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">маршрут отправления</tspan></text>
     <rect
        id="departure"
+		 epoch="Отправление"
  		 owner="tcm"
 		 next="finish"
 		 scenario="departure"
+		 ready="Внимание! Приготовьтесь к отправлению со станции"
+		 active="Маршрут на отправление задан, покиньте станцию и подтвердите выполнение"
+		 time="10"
        height="5.2916656"
        width="42.595798"
        y="268.05237"
@@ -969,8 +1041,12 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">отправление состава</tspan></text>
     <rect
        id="accompaniment"
+		 epoch="Отправление"
  		 owner="vcdeg"
 		 next="finish"
+		 ready="Внимание! Приготовьтесь к отправлению состава со станции"
+		 active="Маршрут на отправление задан, соспроводите состав и подтвердите выполнение"
+		 time="10"
        height="5.2916656"
        width="42.595798"
        y="268.05237"
@@ -994,6 +1070,7 @@
          style="font-size:2.82222223px;stroke-width:0.26458332">сопровождение состава</tspan></text>
     <rect
        id="finish"
+		 epoch="Отправление"
  		 owner=""
 		 next=""
        height="5.2916656"

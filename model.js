@@ -57,9 +57,13 @@ parseString(flowxml, (err, result) => {
 	for (item of rect) {
 		var flow = {};
 		flow.name = item.$.id;
+		flow.epoch = item.$.epoch;
 		flow.owner = item.$.owner;
 		flow.nextnames = item.$.next.split(',');
 		flow.scenario = item.$.scenario;
+		flow.ready = item.$.ready;
+		flow.active = item.$.active;
+		flow.time = item.$.time;
 		flow.wait = [];
 		flow.next = [];
 		data.flow.push(flow);
@@ -76,7 +80,7 @@ parseString(flowxml, (err, result) => {
 	}
 })
 
-function prepareMessages() {
+function messagesPrepare() {
 	data.messages.push({});
 	data.messages.push({});
 	data.messages.push({});
@@ -84,9 +88,9 @@ function prepareMessages() {
 	data.messages.push({});
 	data.messages.push({});
 }
-prepareMessages();
+messagesPrepare();
 
-function resetMessages() {
+function messagesReset() {
 	const types = ["dsp", "sig", "tcm", "stc", "vcdeh", "vcdeg"];
 	var counter = 0;
 	for(item of data.messages) {
@@ -97,7 +101,14 @@ function resetMessages() {
 		item.text = "-";
 	}
 }
-resetMessages();
+messagesReset();
+
+function messagesGet(typeName) {
+	for(item of data.messages) {
+		if (item.type === typeName) return item;
+	}
+	return null;
+}
 
 // model API...
 module.exports.abonGet = (id) => {
@@ -138,7 +149,8 @@ module.exports.reset = () => {
 	data.state = "reset";
 	data.timestring = "СТОП";
 	data.stocks[4].active = false;
-	resetMessages();
+	messagesReset();
+	playerReset();
 }
 
 module.exports.play = () => {
@@ -170,6 +182,13 @@ function waitPreviousCompleted(stage) {
 	return true;
 }
 
+function anyOfPreviousActive(stage) {
+	for (prev of stage.wait) {
+		if (prev.state === "active") return true;
+	}
+	return false;
+}
+
 function completeStage(stage) {
 	stage.state = "completed";
 	for (next of stage.next) {
@@ -198,15 +217,26 @@ module.exports.complete = (stagename) => {
 
 function onStageActivate(stage) {
 	// set stock name
-	data.stocks[4].status = stage.name;
+	data.stocks[4].status = stage.epoch;
 	data.stocks[4].active = true;
 	// init scenario
 	if (stage.scenario) {
 		playerStart(stage.scenario);
 	}
-	// generate text
-	for (item of data.messages) {
-		var a = item;
+	// generate messages
+	for (var stage of data.flow) {
+		if (stage.state === "active") {
+			mesOwner = messagesGet(stage.owner);
+			mesOwner.state = "active";
+			mesOwner.text = stage.active;
+			mesOwner.time = stage.time;
+		}
+		if (stage.state === "idle" || stage.state === "wait") {
+			if ( anyOfPreviousActive(stage) ) {
+				mesOwner.state = "ready";
+				mesOwner.text = stage.ready;
+			}
+		}
 	}
 }
 
