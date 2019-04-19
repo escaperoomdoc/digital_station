@@ -1,5 +1,10 @@
 [
 {"time":"00:00:00", "type":"section", "name":"ms_3", "param":"state", "state":"shunt"},
 {"time":"00:00:00", "type":"section", "name":"ms_4", "param":"state", "state":"shunt"},
-{"time":"00:00:00", "type":"section", "name":"ms_5", "param":"state", "state":"shunt"}
+{"time":"00:00:00", "type":"section", "name":"ms_5", "param":"state", "state":"shunt"},
+{"time":"00:00:00", "type":"light", "name":"ls_m1", "param":"state", "state":"blue"},
+{"time":"00:00:00", "type":"light", "name":"ls_m2", "param":"state", "state":"blue"},
+{"time":"00:00:00", "type":"light", "name":"ls_m3", "param":"state", "state":"blue"},
+{"time":"00:00:00", "type":"light", "name":"ls_m4", "param":"state", "state":"blue"},
+{"time":"00:00:00", "type":"light", "name":"ls_m16", "param":"state", "state":"blue"}
 ]
