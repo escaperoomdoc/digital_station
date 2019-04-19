@@ -41,13 +41,13 @@ ul {
 
 p {
     display: flex;
-    padding: 0px 40px;
-    margin: 20px 10%;
+    padding: 0px 4%;
+    margin: 1.5% 10%;
     min-height: 149px;
     text-align: center;
     border-left: 1px solid black;
     border-right: 1px solid black;
-    font-size: 1.4em;
+    font-size: 1.2em;
     align-items: center;
     justify-content: center;
 }
