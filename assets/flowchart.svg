@@ -14,7 +14,7 @@
    viewBox="0 0 119.0625 190.50001"
    version="1.1"
    id="svg3719"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="flowchart.svg">
   <defs
      id="defs3713">
@@ -459,16 +459,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2421875"
-     inkscape:cx="241.01442"
-     inkscape:cy="443.46265"
+     inkscape:zoom="3.5134368"
+     inkscape:cx="264.43752"
+     inkscape:cy="243.91372"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
      units="px"
-     inkscape:window-width="1920"
-     inkscape:window-height="1017"
-     inkscape:window-x="-8"
+     inkscape:window-width="1600"
+     inkscape:window-height="1178"
+     inkscape:window-x="1358"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-nodes="true"
@@ -523,7 +523,7 @@
          id="tspan39-9-0-5-9-6-8-0-5-5"
          x="18.401226"
          y="112.45533"
-         style="font-size:2.82222223px;stroke-width:0.26458332">начало</tspan></text>
+         style="font-size:2.46944453px;stroke-width:0.26458332">начало</tspan></text>
     <rect
        id="engine_ready"
        epoch="Приемка локомотива"
@@ -546,14 +546,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="4.4402227"
-       y="123.47649"
+       x="5.2235584"
+       y="123.09995"
        id="text41"><tspan
          sodipodi:role="line"
          id="tspan39"
-         x="4.4402227"
-         y="123.47649"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: приемка локомотива</tspan></text>
+         x="5.2235584"
+         y="123.09995"
+         style="font-size:2.46944451px;stroke-width:0.26458332">приемка локомотива</tspan></text>
     <rect
        id="route_in"
        epoch="Заезд под состав"
@@ -576,14 +576,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="7.4829259"
-       y="133.99998"
+       x="5.3173203"
+       y="133.59225"
        id="text41-6"><tspan
          sodipodi:role="line"
          id="tspan39-9"
-         x="7.4829259"
-         y="133.99998"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ДСП: маршрут на путь</tspan></text>
+         x="5.3173203"
+         y="133.59225"
+         style="font-size:2.46944451px;stroke-width:0.26458332">маршрут на путь</tspan></text>
     <rect
        id="arrival"
        epoch="Заезд под состав"
@@ -606,14 +606,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="7.5676761"
-       y="144.65863"
+       x="5.2331858"
+       y="144.2068"
        id="text41-6-6"><tspan
          sodipodi:role="line"
          id="tspan39-9-0"
-         x="7.5676761"
-         y="144.65863"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: заезд под состав</tspan></text>
+         x="5.2331858"
+         y="144.2068"
+         style="font-size:2.46944451px;stroke-width:0.26458332">заезд под состав</tspan></text>
     <rect
        id="documents"
        epoch="?"
@@ -635,14 +635,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="52.945847"
-       y="155.27888"
+       x="52.75758"
+       y="154.90236"
        id="text41-6-6-6"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5"
-         x="52.945847"
-         y="155.27888"
-         style="font-size:2.82222223px;stroke-width:0.26458332">СТЦ: коммерческие документы</tspan></text>
+         x="52.75758"
+         y="154.90236"
+         style="font-size:2.46944451px;stroke-width:0.26458332">коммерческие документы</tspan></text>
     <rect
        id="magistral"
        epoch="Опробование тормозов"
@@ -664,14 +664,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="24.040386"
-       y="165.49753"
+       x="19.032341"
+       y="165.39102"
        id="text41-6-6-6-8-9-8"><tspan
          sodipodi:role="line"
-         x="24.040386"
-         y="165.49753"
+         x="19.032341"
+         y="165.39102"
          style="font-size:2.46944451px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan4784-9">ВЧДЭХ:проверка магистрали</tspan></text>
+         id="tspan4784-9">проверка магистрали</tspan></text>
     <rect
        id="pressure_head"
        epoch="Опробование тормозов"
@@ -693,14 +693,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="24.323864"
-       y="176.08086"
+       x="20.473467"
+       y="175.94318"
        id="text41-6-6-6-8-9-8-2"><tspan
          sodipodi:role="line"
-         x="24.323864"
-         y="176.08086"
-         style="font-size:2.46944453px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan4784-9-1">ТЧМ: давление в магистрали</tspan></text>
+         x="20.473467"
+         y="175.94318"
+         style="font-size:2.46944451px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
+         id="tspan4784-9-1">давление в магистрали</tspan></text>
     <rect
        id="pressure_tail"
        epoch="Опробование тормозов"
@@ -722,14 +722,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:2.64583325px;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="72.304771"
-       y="176.43822"
+       x="67.831818"
+       y="175.95897"
        id="text41-6-6-6-8-9-8-2-3"><tspan
          sodipodi:role="line"
-         x="72.304771"
-         y="176.43822"
+         x="67.831818"
+         y="175.95897"
          style="font-size:2.46944451px;line-height:1.58749998px;text-align:center;text-anchor:middle;stroke-width:0.26458332"
-         id="tspan4784-9-1-5">ВЧДЭХ: давление в магистрали</tspan></text>
+         id="tspan4784-9-1-5">давление в магистрали</tspan></text>
     <rect
        id="brakes"
        epoch="Опробование тормозов"
@@ -751,14 +751,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="11.02219"
-       y="186.75166"
+       x="5.4343987"
+       y="186.37512"
        id="text41-6-6-6-5"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9"
-         x="11.02219"
-         y="186.75166"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: торможение</tspan></text>
+         x="5.4343987"
+         y="186.37512"
+         style="font-size:2.46944451px;stroke-width:0.26458332">торможение</tspan></text>
     <rect
        id="brakes_head"
        epoch="Опробование тормозов"
@@ -780,14 +780,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="4.2868447"
-       y="197.34219"
+       x="5.3474011"
+       y="197.26689"
        id="text41-6-6-6-5-9"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6"
-         x="4.2868447"
-         y="197.34219"
-         style="font-size:2.46944451px;stroke-width:0.26458332">ВЧДЭГ: опробование тормозов</tspan></text>
+         x="5.3474011"
+         y="197.26689"
+         style="font-size:2.46944451px;stroke-width:0.26458332">опробование тормозов</tspan></text>
     <rect
        id="brakes_tail"
        epoch="Опробование тормозов"
@@ -827,14 +827,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="16.030859"
-       y="207.85594"
+       x="5.2589464"
+       y="207.82474"
        id="text41-6-6-6-5-3"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-5"
-         x="16.030859"
-         y="207.85594"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: отпуск</tspan></text>
+         x="5.2589464"
+         y="207.82474"
+         style="font-size:2.46944451px;stroke-width:0.26458332">отпуск тормозов</tspan></text>
     <rect
        id="release_head"
        epoch="Опробование тормозов"
@@ -856,14 +856,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="4.6148129"
-       y="218.55296"
+       x="5.2480741"
+       y="218.32706"
        id="text41-6-6-6-5-9-8"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8"
-         x="4.6148129"
-         y="218.55296"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ВЧДЭГ: проверка колодок</tspan></text>
+         x="5.2480741"
+         y="218.32706"
+         style="font-size:2.46944451px;stroke-width:0.26458332">проверка колодок</tspan></text>
     <rect
        id="release_tail"
        epoch="Опробование тормозов"
@@ -885,14 +885,16 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="52.541061"
-       y="218.47766"
+       x="51.955315"
+       y="218.3179"
        id="text41-6-6-6-5-9-5-1"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-4-1"
-         x="52.541061"
-         y="218.47766"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ВЧДЭХ: проверка колодок </tspan></text>
+         x="51.955315"
+         y="218.3179"
+         style="font-size:2.82222223px;stroke-width:0.26458332"><tspan
+   style="font-size:2.46944451px"
+   id="tspan1601"> проверка колодок</tspan> </tspan></text>
     <rect
        id="vu45"
        epoch="Опробование тормозов"
@@ -914,14 +916,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="7.6089191"
-       y="229.21162"
+       x="5.1411724"
+       y="229.10512"
        id="text41-6-6-6-5-9-8-6"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-3"
-         x="7.6089191"
-         y="229.21162"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: получение ВУ-45</tspan></text>
+         x="5.1411724"
+         y="229.10512"
+         style="font-size:2.46944451px;stroke-width:0.26458332">получение ВУ-45</tspan></text>
     <rect
        id="unshoe"
        epoch="Снятие закрепления"
@@ -943,14 +945,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="5.6825309"
-       y="239.79498"
+       x="5.2511835"
+       y="239.47548"
        id="text41-6-6-6-5-9-8-6-2"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-3-6"
-         x="5.6825309"
-         y="239.79498"
-         style="font-size:2.82222223px;stroke-width:0.26458332">СИГ: снятие закрепления</tspan></text>
+         x="5.2511835"
+         y="239.47548"
+         style="font-size:2.46944451px;stroke-width:0.26458332">снятие закрепления</tspan></text>
     <rect
        id="depart_ready"
        epoch="Отправление"
@@ -972,14 +974,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="5.2129354"
-       y="250.41667"
+       x="4.999938"
+       y="250.09717"
        id="text41-6-6-6-5-9-8-6-2-4"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-3-6-4"
-         x="5.2129354"
-         y="250.41667"
-         style="font-size:2.46944451px;stroke-width:0.26458332">ТЧМ: готовность отправления</tspan></text>
+         x="4.999938"
+         y="250.09717"
+         style="font-size:2.46944451px;stroke-width:0.26458332">готовность отправления</tspan></text>
     <rect
        id="route_out"
        epoch="Отправление"
@@ -1001,14 +1003,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="5.8168063"
-       y="261"
+       x="5.4090829"
+       y="260.78699"
        id="text41-6-6-6-5-9-8-6-2-4-1"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-3-6-4-5"
-         x="5.8168063"
-         y="261"
-         style="font-size:2.46944451px;stroke-width:0.26458332">ДСП: маршрут отправления</tspan></text>
+         x="5.4090829"
+         y="260.78699"
+         style="font-size:2.46944451px;stroke-width:0.26458332">маршрут отправления</tspan></text>
     <rect
        id="departure"
        epoch="Отправление"
@@ -1031,14 +1033,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="4.6148129"
-       y="271.54495"
+       x="5.1214671"
+       y="271.43845"
        id="text41-6-6-6-5-9-8-65"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-0"
-         x="4.6148129"
-         y="271.54495"
-         style="font-size:2.82222223px;stroke-width:0.26458332">ТЧМ: отправление состава</tspan></text>
+         x="5.1214671"
+         y="271.43845"
+         style="font-size:2.46944451px;stroke-width:0.26458332">отправление состава</tspan></text>
     <rect
        id="accompaniment"
        epoch="Отправление"
@@ -1060,14 +1062,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="51.107353"
-       y="271.54498"
+       x="52.917835"
+       y="271.27875"
        id="text41-6-6-6-5-9-5-1-9"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-4-1-9"
-         x="51.107353"
-         y="271.54498"
-         style="font-size:2.46944451px;stroke-width:0.26458332">ВЧДЭГ: сопровождение состава</tspan></text>
+         x="52.917835"
+         y="271.27875"
+         style="font-size:2.46944451px;stroke-width:0.26458332">сопровождение состава</tspan></text>
     <rect
        id="finish"
        epoch="Отправление"
@@ -1086,14 +1088,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="18.663677"
-       y="281.7887"
+       x="20.580658"
+       y="282.3212"
        id="text41-6-6-6-5-9-8-65-2"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-8-0-5"
-         x="18.663677"
-         y="281.7887"
-         style="font-size:2.82222223px;stroke-width:0.26458332">конец</tspan></text>
+         x="20.580658"
+         y="282.3212"
+         style="font-size:2.46944451px;stroke-width:0.26458332">конец</tspan></text>
     <path
        style="fill:none;stroke:#000001;stroke-width:0.26499999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
        d="m 24.077633,114.59402 v 5.29166"
@@ -1233,13 +1235,431 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="51.116074"
-       y="197.42761"
+       x="52.798"
+       y="197.22374"
        id="text41-6-6-6-5-9-6"><tspan
          sodipodi:role="line"
          id="tspan39-9-0-5-9-6-0"
-         x="51.116074"
-         y="197.42761"
-         style="font-size:2.46944451px;stroke-width:0.26458332">ВЧДЭХ: опробование тормозов</tspan></text>
+         x="52.798"
+         y="197.22374"
+         style="font-size:2.46944451px;stroke-width:0.26458332">опробование тормозов</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="4.9691367"
+       y="119.13902"
+       id="text1297-8"><tspan
+         sodipodi:role="line"
+         id="tspan1295-24"
+         x="4.9691367"
+         y="119.13902"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.0871563"
+       y="129.68188"
+       id="text1297-7-7"><tspan
+         sodipodi:role="line"
+         id="tspan1295-1-2"
+         x="5.0871563"
+         y="129.68188"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ДСП</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.174818"
+       y="140.33264"
+       id="text1297-1"><tspan
+         sodipodi:role="line"
+         id="tspan1295-5"
+         x="5.174818"
+         y="140.33264"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.787674"
+       y="150.77043"
+       id="text1297-3-9"><tspan
+         sodipodi:role="line"
+         id="tspan1295-0-0"
+         x="52.787674"
+         y="150.77043"
+         style="font-size:1.76388896px;stroke-width:0.26458332">СТЦ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.2209382"
+       y="161.6398"
+       id="text1297-70-7"><tspan
+         sodipodi:role="line"
+         id="tspan1295-7-0"
+         x="5.2209382"
+         y="161.6398"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭХ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.798168"
+       y="171.97731"
+       id="text1297-70-71"><tspan
+         sodipodi:role="line"
+         id="tspan1295-7-1"
+         x="52.798168"
+         y="171.97731"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭХ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.713726"
+       y="193.23024"
+       id="text1297-70-3"><tspan
+         sodipodi:role="line"
+         id="tspan1295-7-5"
+         x="52.713726"
+         y="193.23024"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭХ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.861954"
+       y="214.42908"
+       id="text1297-70-8"><tspan
+         sodipodi:role="line"
+         id="tspan1295-7-52"
+         x="52.861954"
+         y="214.42908"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭХ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.1972933"
+       y="193.17741"
+       id="text1297-79-4"><tspan
+         sodipodi:role="line"
+         id="tspan1295-6-0"
+         x="5.1972933"
+         y="193.17741"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭГ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.0691562"
+       y="214.45988"
+       id="text1297-79-7"><tspan
+         sodipodi:role="line"
+         id="tspan1295-6-5"
+         x="5.0691562"
+         y="214.45988"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭГ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="52.897202"
+       y="267.27225"
+       id="text1297-79-6"><tspan
+         sodipodi:role="line"
+         id="tspan1295-6-4"
+         x="52.897202"
+         y="267.27225"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ВЧДЭГ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.1219873"
+       y="172.06134"
+       id="text1297-30"><tspan
+         sodipodi:role="line"
+         id="tspan1295-02"
+         x="5.1219873"
+         y="172.06134"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.3479061"
+       y="182.64693"
+       id="text1297-82"><tspan
+         sodipodi:role="line"
+         id="tspan1295-9"
+         x="5.3479061"
+         y="182.64693"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.3153119"
+       y="203.96419"
+       id="text1297-4"><tspan
+         sodipodi:role="line"
+         id="tspan1295-4"
+         x="5.3153119"
+         y="203.96419"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.1118684"
+       y="225.09827"
+       id="text1297-32"><tspan
+         sodipodi:role="line"
+         id="tspan1295-68"
+         x="5.1118684"
+         y="225.09827"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.240006"
+       y="246.039"
+       id="text1297-2"><tspan
+         sodipodi:role="line"
+         id="tspan1295-40"
+         x="5.240006"
+         y="246.039"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.6142993"
+       y="256.52115"
+       id="text1297-7-7-2"><tspan
+         sodipodi:role="line"
+         id="tspan1295-1-2-5"
+         x="5.6142993"
+         y="256.52115"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ДСП</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.2377691"
+       y="267.08768"
+       id="text1297-2-6"><tspan
+         sodipodi:role="line"
+         id="tspan1295-40-2"
+         x="5.2377691"
+         y="267.08768"
+         style="font-size:1.76388896px;stroke-width:0.26458332">ТЧМ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:1.76388896px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="5.1545815"
+       y="235.71422"
+       id="text1297-0-1"><tspan
+         sodipodi:role="line"
+         id="tspan1295-2-1"
+         x="5.1545815"
+         y="235.71422"
+         style="font-size:1.76388896px;stroke-width:0.26458332">СИГ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.860165"
+       y="123.01555"
+       id="text41-6-6-6-5-9-8-65-2-4-0"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4"
+         x="36.860165"
+         y="123.01555"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.engine_ready.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.88715"
+       y="133.55478"
+       id="text41-6-6-6-5-9-8-65-2-4-0-4"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-7"
+         x="36.88715"
+         y="133.55478"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.route_in.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.746616"
+       y="144.21986"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3"
+         x="36.746616"
+         y="144.21986"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.arrival.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.806747"
+       y="165.38654"
+       id="text41-6-6-6-5-9-8-65-2-4-0-3"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-5"
+         x="36.806747"
+         y="165.38654"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.magistral.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.81181"
+       y="176.04518"
+       id="text41-6-6-6-5-9-8-65-2-4-0-2"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-1"
+         x="36.81181"
+         y="176.04518"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.pressure_head.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.887115"
+       y="186.59085"
+       id="text41-6-6-6-5-9-8-65-2-4-0-475"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-4"
+         x="36.887115"
+         y="186.59085"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.brakes.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.854519"
+       y="197.17419"
+       id="text41-6-6-6-5-9-8-65-2-4-0-43"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-8"
+         x="36.854519"
+         y="197.17419"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.brakes_head.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.824749"
+       y="207.6974"
+       id="text41-6-6-6-5-9-8-65-2-4-0-32"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-9"
+         x="36.824749"
+         y="207.6974"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.brakes_release.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.887112"
+       y="218.30319"
+       id="text41-6-6-6-5-9-8-65-2-4-0-9"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-57"
+         x="36.887112"
+         y="218.30319"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.release_head.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.952885"
+       y="228.83147"
+       id="text41-6-6-6-5-9-8-65-2-4-0-1"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-34"
+         x="36.952885"
+         y="228.83147"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.vu45.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.937706"
+       y="239.4474"
+       id="text41-6-6-6-5-9-8-65-2-4-0-6"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-71"
+         x="36.937706"
+         y="239.4474"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.unshoe.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.962421"
+       y="249.98801"
+       id="text41-6-6-6-5-9-8-65-2-4-0-8"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-74"
+         x="36.962421"
+         y="249.98801"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.depart_ready.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.919708"
+       y="260.64157"
+       id="text41-6-6-6-5-9-8-65-2-4-0-433"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-46"
+         x="36.919708"
+         y="260.64157"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.route_out.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.934887"
+       y="271.27267"
+       id="text41-6-6-6-5-9-8-65-2-4-0-95"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-2"
+         x="36.934887"
+         y="271.27267"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.departure.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="93.689331"
+       y="154.80321"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47-1"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3-4"
+         x="93.689331"
+         y="154.80321"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.documents.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="85.829376"
+       y="175.96422"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47-1-6"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3-4-6"
+         x="85.829376"
+         y="175.96422"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.pressure_tail.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="85.829376"
+       y="197.1489"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47-1-5"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3-4-0"
+         x="85.829376"
+         y="197.1489"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.brakes_tail.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="85.754074"
+       y="218.32346"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47-1-2"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3-4-3"
+         x="85.754074"
+         y="218.32346"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.release_tail.time }}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="85.904686"
+       y="271.23224"
+       id="text41-6-6-6-5-9-8-65-2-4-0-47-1-51"><tspan
+         sodipodi:role="line"
+         id="tspan39-9-0-5-9-6-8-0-5-5-4-3-4-5"
+         x="85.904686"
+         y="271.23224"
+         style="font-size:2.11666656px;stroke-width:0.26458332">{{ event.diagram.flow.accompaniment.time }}</tspan></text>
   </g>
 </svg>
