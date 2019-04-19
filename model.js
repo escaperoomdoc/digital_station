@@ -340,7 +340,6 @@ function playerControl() {
 
 playerInit();
 
-
 // 1 second timer
 module.exports.tick = () => {
 	if (data.state === 'play' || data.state === 'pause') {

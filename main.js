@@ -14,6 +14,7 @@ app.set('view engine', 'ejs');
 app.get('/:id', function(req, res) {
 	try {
 		if (req.params.id == "dsp") res.render("dsp"); else
+		if (req.params.id == "debug") res.render("debug"); else
 		res.render("mobile", { user: req.params.id });
 	}
 	catch(error) {
