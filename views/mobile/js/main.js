@@ -2,16 +2,17 @@ var mobile = new Vue({
     el: '#app',
     data: {
         ways: [
-            // { "way": "1П", "stock": "6368", "status": "operation", "status_alias": "Технический осмотр", "active": false },
+            { "way": "", "stock": "", "status": "free", "status_alias": "Загрузка...", "active": false },
             // { "way": "2П", "stock": "8543", "status": "operation", "status_alias": "Опробование тормозов", "active": false },
             // { "way": "3П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
             // { "way": "4П", "stock": "—", "status": "free", "status_alias": "Нет данных", "active": false },
             // { "way": "5П", "stock": "4564", "status": "operation", "status_alias": "Опробование тормозов", "active": true }
         ],
         message: {
-            // "state": "active",
-            // "time": "5",
-            // "text": "Текст сообщения"
+            "state": "active",
+            "time": "5",
+            "text": "Текст сообщения",
+            progress: "50"
         },
         selectedWay: NaN,
         time: "СТОП",
@@ -29,7 +30,29 @@ var mobile = new Vue({
         changeWay(i) {
             if (this.selectedWay == i) this.selectedWay = NaN;
             else this.selectedWay = i;
-        }
+        },
+        progressBar: function(way) {
+                if (way.active && this.message.state=='active') {
+                    let progress1 = +this.message.progress;
+                    let progress2 = progress1 + 10;
+                    let value = 'linear-gradient(to right, #7AFF90 ' + progress1 + '%, #E6FFEA ' + progress2 + '%)';
+                    return { background: value};
+
+                }
+        },
+    },
+    computed: {
+        // progressBar: {
+        //     get: function (i) {
+        //         if (i===4) return {background: 'linear-gradient(to right, #7AFF90 80%, #E6FFEA 90%)'}
+        //     },
+        //     set: function (i) {
+        //         if (i===4) return {background: 'linear-gradient(to right, #7AFF90 80%, #E6FFEA 90%)'}
+        //     }
+        // }
+        // progressBar(i) {
+        //     return { background: 'linear-gradient(to right, #7AFF90 80%, #E6FFEA 90%)'};
+        // },
     }
 });
 
@@ -81,7 +104,9 @@ function updateList(obj, abonentType) {
 		if (message.type === abonentType ) {
 			mobile.fio = message.fio;
 			mobile.name = message.name;
+            mobile.progress = message.progress;
 			break;
 		}
 	 }
+
 }
