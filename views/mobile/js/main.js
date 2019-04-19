@@ -32,11 +32,11 @@ var mobile = new Vue({
             else this.selectedWay = i;
         },
         progressBar: function(way) {
-                if (way.active && this.message.state=='active') {
+                if (way.active && this.message.state=='active' && (this.message.time > 0)) {
                     let progress1 = +this.message.progress;
                     if (progress1 < 0) progress1 = 0;
                     else if (progress1 > 100) progress1 = 100;
-                    let progress2 = progress1 + 10;
+                    let progress2 = progress1 + 5;
                     let value = 'linear-gradient(to right, #7AFF90 ' + progress1 + '%, #E6FFEA ' + progress2 + '%)';
                     return { background: value};
 

@@ -166,6 +166,10 @@ p {
     background: #E6FFEA;
 }
 
+.list_fale_state {
+    background: #FFF0E8;
+}
+
 .timeActive {
     position: absolute;
     right: 10px;
