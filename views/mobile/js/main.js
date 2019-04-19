@@ -12,7 +12,7 @@ var mobile = new Vue({
             "state": "active",
             "time": "5",
             "text": "Текст сообщения",
-            progress: "50"
+            "progress": "50"
         },
         selectedWay: NaN,
         time: "СТОП",
@@ -34,6 +34,8 @@ var mobile = new Vue({
         progressBar: function(way) {
                 if (way.active && this.message.state=='active') {
                     let progress1 = +this.message.progress;
+                    if (progress1 < 0) progress1 = 0;
+                    else if (progress1 > 100) progress1 = 100;
                     let progress2 = progress1 + 10;
                     let value = 'linear-gradient(to right, #7AFF90 ' + progress1 + '%, #E6FFEA ' + progress2 + '%)';
                     return { background: value};
@@ -98,13 +100,13 @@ function updateList(obj, abonentType) {
             mobile.message.state = item.state;
             mobile.message.time = item.time;
             mobile.message.text = item.text;
+            mobile.message.progress = item.progress;
         }
     });
 	 for (message of obj.messages ) {
 		if (message.type === abonentType ) {
 			mobile.fio = message.fio;
 			mobile.name = message.name;
-            mobile.progress = message.progress;
 			break;
 		}
 	 }
