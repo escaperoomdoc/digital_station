@@ -2,6 +2,7 @@
 
 // read rdm.svg
 var data = {
+	"booster": 1,
 	"state": "none",
 	"time": 0,
 	"abonents": [],
@@ -63,7 +64,10 @@ parseString(flowxml, (err, result) => {
 		flow.scenario = item.$.scenario;
 		flow.ready = item.$.ready;
 		flow.active = item.$.active;
-		flow.time = item.$.time;
+		flow.timeMax = parseInt(item.$.time, 10);
+		flow.timeSec = flow.timeMax * 60;
+		flow.time = flow.timeMax;
+		flow.progress = 0;
 		flow.wait = [];
 		flow.next = [];
 		data.flow.push(flow);
@@ -100,7 +104,7 @@ function messagesReset() {
 		item.name = names[counter];
 		item.fio = fios[counter];
 		item.state = "idle";
-		item.time = "00:00:00";
+		item.time = 10;
 		item.progress = 0;
 		item.text = "-";
 		counter ++
@@ -127,7 +131,6 @@ function messagesUpdate() {
 		if (stage.state === "active") {
 			message.state = "active";
 			message.text = stage.active;
-			message.time = stage.time;
 		}
 		if (stage.state === "idle" || stage.state === "wait") {
 			if ( anyOfPreviousActive(stage) ) {
@@ -167,14 +170,18 @@ function flowGet(name) {
 module.exports.flowGet = flowGet;
 
 module.exports.reset = () => {
-	for(var value of data.flow) {
-		value.state = "idle";
+	for(var stage of data.flow) {
+		stage.state = "idle";
+		stage.timeSec = stage.timeMax * 60;
+		stage.time = stage.timeMax;	
+		stage.progress = 0;
 	}
 	for(var value of data.rdm) {
 		if (value.type === 'section') value.state = "free";
 		if (value.type === 'switch') value.state = "off";
 		if (value.type === 'light') value.state = "red";
-	}	
+	}
+	data.booster = 1;
 	data.state = "reset";
 	data.timestring = "СТОП";
 	data.stocks[4].active = false;
@@ -253,6 +260,10 @@ function onStageActivate(stageNew) {
 	for (next of stageNew.next) {
 		if(next.state === "idle") next.state = "wait";
 	}
+	// estimate time scaler
+	data.booster = parseInt(stageNew.time, 10 );
+	if (data.booster > 10) data.booster = 10;
+	if (data.booster < 0) data.booster = 0;
 }
 
 var scenarios = [];
@@ -266,10 +277,13 @@ function playerReset() {
 function playerInitItem(scenarioName) {
 	scenario = {name: scenarioName, data: require(`./assets/scenarios/${scenarioName}.json`)};
 	scenarios.push(scenario);
+	scenario.maxTime = 0;
 	for (item of scenario.data) {
 		time = item.time.split(":");
 		item.timeint = parseInt(time[0]) * 3600 + parseInt(time[1]) * 60 + parseInt(time[2]);
+		if (item.timeint > scenario.maxTime) scenario.maxTime = item.timeint;
 	}
+	var deb=0;
 }
 function playerInit() {
 	try {
@@ -313,6 +327,9 @@ function playerExecute(scenario) {
 			}				
 		}
 	}
+	if (data.time > scenario.starttime + scenario.maxTime) {
+		scenario.state = "idle";
+	}
 }
 
 function playerControl() {
@@ -332,6 +349,23 @@ module.exports.tick = () => {
 		data.timestring = mytime.toISOString().substr(11, 8);
 		playerControl(data.timestring);
 		data.time ++;
+		for (stage of data.flow) {
+			if (stage.state === "active") {
+				stage.timeSec --;
+				if (stage.timeSec > 0) {
+					timeMax = stage.timeMax*60;
+					stage.progress = Math.floor((timeMax-stage.timeSec)*100/timeMax);
+				}
+				else stage.progress = 100;
+				stage.time = Math.floor(stage.timeSec/60);
+				message = messagesGet(stage.owner);
+				if (!message) continue;
+				if (message.state === "active") {
+					message.time = stage.time;
+					message.progress = stage.progress;
+				}				
+			}
+		}
 	}
 }
 

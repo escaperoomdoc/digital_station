@@ -34,7 +34,12 @@ http.listen(80, () => {
 	console.log('HTTP server listening...');
 });
 
+var tmtick = 0;
 setInterval(() => {
-	if (model.data.state === 'play' ) model.tick();
-}, 1000);
+	tmtick += 100 * model.data.booster;
+	if (tmtick >= 1000) {
+		if (model.data.state === 'play' ) model.tick();
+		tmtick = 0;
+	}
+}, 100);
 
