@@ -125,13 +125,14 @@ button:active {
 .process {
     fill-opacity: 1 !important;
 }
-.flow_idle      { fill: white       !important; }
-.flow_active    { fill: gold        !important; }
-.flow_completed { fill: greenyellow !important; }
+.flow_idle      { fill: white   !important; }
+.flow_active    { fill: #E6FFEA !important; }
+.flow_completed { fill: #7AFF90 !important; }
+.flow_fale      { fill: #ff2030 !important; }
 .flow_wait      { animation: flow_wait 1s infinite; }
 @keyframes flow_wait {
     0% {fill: white;}
-    50% {fill: #ffea80;}
+    50% {fill: #fff17a;}
     100% {fill: white;}
 }
 

@@ -162,13 +162,8 @@ p {
     100% {}
 }
 
-.list_active_state {
-    background: #E6FFEA;
-}
-
-.list_fale_state {
-    background: #ff2030;
-}
+.list_active_state { background: #E6FFEA; }
+.list_fale_state   { background: #ff2030; }
 
 .timeActive {
     position: absolute;

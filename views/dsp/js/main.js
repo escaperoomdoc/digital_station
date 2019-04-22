@@ -409,9 +409,10 @@ function updateModel(obj) {
         let name = item.name;
         let state = item.state;
         let time = item.time;
+        if (time <= 0) state = "fale";
 
         app.event.diagram.flow[name].state = state;
-        app.event.diagram.flow[name].time = time;
+        app.event.diagram.flow[name].time = time + "мин";
     });
 
     /* RDM */
