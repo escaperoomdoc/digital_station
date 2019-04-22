@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>pixi test</title>
+	<script type="text/javascript" src="gir/pixi.js"></script>
+</head>
+<body>
+	<script type="text/javascript" src="gir/gir.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+	<script>
+			var socket = io.connect(location.host);
+			socket.on('server2client', function(data) {
+				 try {
+					  var model = JSON.parse(data);
+						onUpdate(model);
+				 }
+				 catch(error) {
+					  console.log('ERROR : ' + error + ' # ' + data);
+				 }
+			});
+			setTimeout(() => {
+				 socket.emit('client2server', '{"name":"gir"}');
+			}, 1000);
+	</script>	
+</body>
+</html>
