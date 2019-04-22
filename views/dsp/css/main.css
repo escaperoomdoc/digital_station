@@ -126,7 +126,12 @@ button:active {
     fill-opacity: 1 !important;
 }
 .flow_idle      { fill: white   !important; }
-.flow_active    { fill: #E6FFEA !important; }
+.flow_active    { fill: #E6FFEA !important; animation: flow_active 1s infinite; }
+@keyframes flow_active {
+    0% {stroke: black;}
+    50% {stroke: deepskyblue;}
+    100% {stroke: black;}
+}
 .flow_completed { fill: #7AFF90 !important; }
 .flow_fale      { fill: #ff2030 !important; }
 .flow_wait      { animation: flow_wait 1s infinite; }

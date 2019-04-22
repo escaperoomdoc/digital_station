@@ -32,7 +32,7 @@ var mobile = new Vue({
             else this.selectedWay = i;
         },
         progressBar: function(way) {
-                if (way.active && this.message.state=='active' && (this.message.time > 0)) {
+                if (way.active && this.message.state=='active' && (this.message.time >= 0)) {
                     let progress1 = +this.message.progress;
                     if (progress1 < 0) progress1 = 0;
                     else if (progress1 > 100) progress1 = 100;
