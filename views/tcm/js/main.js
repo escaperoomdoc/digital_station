@@ -51,8 +51,10 @@ function updateScreen(obj) {
         let time = item.time;
         if (time !== undefined && time !== "" && time < 0) state = "fail";
 
-        screen.flow[name].state = state;
-        screen.flow[name].time = time;
+        if (screen.flow[name] !== undefined) {
+            screen.flow[name].state = state;
+            screen.flow[name].time = time;
+        }
     });
 
     /* NAME */
