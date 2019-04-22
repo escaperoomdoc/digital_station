@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТЧМ</title>
+    <link rel="stylesheet" href="tcm/css/main.css">
+    <script src="libs/vue.js"></script>
+</head>
+<body>
+    <div class="device">
+        <div class="screen">
+            <header>
+                <div>
+                    <div>Станция «Цифровая»</div>
+                    <div>{{ time }}</div>
+                </div>
+                <div>
+                    <div>{{ name }}</div>
+                    <div>{{ fio }}</div>
+                </div>
+            </header>
+            <section class="flow">
+                <ul>
+                    <li id="engine_ready" :class="'flow_'+flow.engine_ready.state">Приёмка локомотива</li>
+                    <li id="arrival" :class="'flow_'+flow.arrival.state">Заезд под состав</li>
+                    <li id="pressure_head" :class="'flow_'+flow.pressure_head.state">Подтверждение давления в магистрали</li>
+                    <li id="brakes" :class="'flow_'+flow.brakes.state">Опробование тормозов (торможение)</li>
+                    <li id="brakes_release" :class="'flow_'+flow.brakes_release.state">Опробование тормозов (отпуск)</li>
+                    <li id="vu45" :class="'flow_'+flow.vu45.state">Подтверждение опрбования тормозов (получение справки ВУ-45)</li>
+                    <li id="depart_ready" :class="'flow_'+flow.depart_ready.state">Подтверждение готовности к отправлению</li>
+                    <li id="departure" :class="'flow_'+flow.departure.state">Подтверждение отправления локомотива</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+
+<script src="tcm/js/main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>
+<script>
+    var socket = io.connect(location.host);
+    socket.on('server2client', function(data) {
+        try {
+            var obj = JSON.parse(data);
+            console.log(obj);
+            updateScreen(obj);
+        }
+        catch(error) {
+            console.log('ERROR : ' + error + ' # ' + data);
+        }
+    });
+    setInterval(() => {
+        socket.emit('client2server', '{"name":"tcm"}');
+    }, 1000);
+</script>
+</body>
+</html>

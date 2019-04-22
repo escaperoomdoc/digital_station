@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700');
+
+html {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.device {
+    background: url(../images/elmt.png) no-repeat;
+    width: 1126px;
+    height: 686px;
+    min-width: 1126px;
+    min-height: 686px;
+    display: flex;
+    justify-content: center;
+}
+
+.screen {
+    display: block;
+    width: 800px;
+    height: 600px;
+    max-width: 800px;
+    max-height: 600px;
+    background: white;
+    margin-top: 42px;
+}
+
+header {
+    height: 70px;
+    background-color: deepskyblue;
+    width: 800px;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 1px 10px 1px grey;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+header > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5% 2%;
+}
+
+.flow ul {
+    display: flex;
+    font-size: 0.75em;
+    margin-top: 20px;
+    justify-content: space-evenly;
+
+}
+
+.flow ul li {
+    display: flex;
+    width: 11.5%;
+    height: 85px;
+    border-radius: 10px;
+    align-items: center;
+    text-align: center;
+    border: rgba(0,0,0,0) 2px solid;
+}
+
+.flow_idle { background: lavender}
+.flow_active { background: #E6FFEA; border: 2px solid deepskyblue !important}
+.flow_completed { background: #7AFF90; }
+.flow_fail { background: #ff2030; }
+.flow_wait { animation: flow_wait 2.5s infinite; }
+@keyframes flow_wait {
+    0% {background: lavender;}
+    5% {}
+    50% {background: #fff17a;}
+    95% {}
+    100% {background: lavender;}
+}
+
+
+
+@media screen and (max-width: 800px) {
+    html {
+        overflow: hidden;
+    }
+
+    body {
+        background: black;
+    }
+    .device {
+        background: black none;
+        width: 800px;
+        height: 600px;
+        min-width: 800px;
+        min-height: 600px;
+    }
+    .screen {
+        margin-top: 0;
+    }
+}

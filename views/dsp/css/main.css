@@ -133,7 +133,7 @@ button:active {
     100% {stroke: black;}
 }
 .flow_completed { fill: #7AFF90 !important; }
-.flow_fale      { fill: #ff2030 !important; }
+.flow_fail      { fill: #ff2030 !important; }
 .flow_wait      { animation: flow_wait 1s infinite; }
 @keyframes flow_wait {
     0% {fill: white;}

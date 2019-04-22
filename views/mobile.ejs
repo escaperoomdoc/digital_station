@@ -30,7 +30,7 @@
                                                                {'list_active': ways[i].active},
                                                                {'list_ready_state': ways[i].active && message.state=='ready'},
                                                                {'list_active_state': ways[i].active && message.state=='active' && message.time >= 0},
-                                                               {'list_fale_state': ways[i].active && message.state=='active' && message.time < 0}]"
+                                                               {'list_fail_state': ways[i].active && message.state=='active' && message.time < 0}]"
                                                        :style="progressBar(way)">
                     <div>{{ ways[i].way }}</div>
                     <div>{{ ways[i].stock }}</div>
