@@ -32,6 +32,12 @@ var screen = new Vue({
         }
     },
     methods: {
+        confirm: function () {
+            
+        },
+        cancel: function () {
+            
+        }
 
     },
     computed: {

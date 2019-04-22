@@ -32,6 +32,20 @@
                     <li id="departure" :class="'flow_'+flow.departure.state">Подтверждение отправления локомотива</li>
                 </ul>
             </section>
+            <section class="current">
+                <div class="currentTitle">Текущая операция</div>
+                <div class="currentFlow">Текущая операция</div>
+            </section>
+            <section style="height: 120px">
+
+            </section>
+            <section class="confirmForm">
+                <div class="confirmMessage">Подтвердите факт приемки локомотива</div>
+                <div class="buttons">
+                    <button class="confirm" @click="confirm">OK</button>
+                    <button class="cancel" @click="cancel">Cancel</button>
+                </div>
+            </section>
         </div>
     </div>
 

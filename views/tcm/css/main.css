@@ -62,7 +62,7 @@ header > div {
 .flow ul {
     display: flex;
     font-size: 0.75em;
-    margin-top: 20px;
+    margin: 20px 0;
     justify-content: space-evenly;
 
 }
@@ -88,6 +88,71 @@ header > div {
     50% {background: #fff17a;}
     95% {}
     100% {background: lavender;}
+}
+
+.current {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.current div {
+    display: flex;
+    font-size: 2em;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.currentTitle {
+    background-color: lightgray;
+    color: white;
+    box-shadow: inset 0vh 0vh 10px 5px grey;
+    height: 50px;
+}
+
+.currentFlow {
+    background-color: lavender;
+    height: 60px;
+}
+
+.buttons {
+    display: flex;
+}
+
+.buttons button {
+    width: 200px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.6em;
+    outline: none;
+}
+
+.confirmForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.confirmMessage {
+    font-size: 2em;
+    padding: 20px 20px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.confirm {
+    background: yellowgreen;
+}
+
+.cancel {
+    background: coral;
 }
 
 
