@@ -19,7 +19,7 @@
 					  console.log('ERROR : ' + error + ' # ' + data);
 				 }
 			});
-			setTimeout(() => {
+			setInterval(() => {
 				 socket.emit('client2server', '{"name":"gir"}');
 			}, 1000);
 	</script>	
