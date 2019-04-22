@@ -2,67 +2,88 @@ const defaultRDM =  {
     "diagram": {
         "flow": {
             "start": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "engine_ready": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "route_in": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "arrival": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "documents": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "magistral": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "pressure_head": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "pressure_tail": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "brakes": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "brakes_head": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "brakes_tail": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "brakes_release": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "release_head": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "release_tail": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "vu45": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "unshoe": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "depart_ready": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "route_out": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "departure": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "accompaniment": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             },
             "finish": {
-                "state": "idle"
+                "state": "idle",
+                "time": "0мин"
             }
         }
     },
@@ -387,7 +408,10 @@ function updateModel(obj) {
     obj.flow.forEach(function(item) {
         let name = item.name;
         let state = item.state;
+        let time = item.time;
+
         app.event.diagram.flow[name].state = state;
+        app.event.diagram.flow[name].time = time;
     });
 
     /* RDM */
