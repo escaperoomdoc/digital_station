@@ -13,8 +13,10 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.get('/:id', function(req, res) {
 	try {
-		if (req.params.id == "dsp") res.render("dsp"); else
-		if (req.params.id == "debug") res.render("debug"); else
+		if (req.params.id === "dsp") res.render("dsp"); else
+		if (req.params.id === "tcm") res.render("tcm"); else
+		if (req.params.id === "debug") res.render("debug"); else
+		if (req.params.id === "gir") res.render("gir"); else
 		res.render("mobile", { user: req.params.id });
 	}
 	catch(error) {
@@ -26,7 +28,6 @@ app.get('/*', (req, res) => {
 	res.sendFile(__dirname + "/views" + req.url);
 	console.log('transfered file ' + req.url);
 })
-
 
 model.reset();
 sio(http, model);
