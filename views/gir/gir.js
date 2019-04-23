@@ -58,25 +58,35 @@ var Grids = function() {
   this.graphics.lineStyle(1, 0xa0a0a0);
   this.textAlias = [];
   this.textTimes = [];
-  for (var x = 0; x <= 12; x ++) {
-	  this.graphics.moveTo(headerWidth + minuteWidth * x * 10, headerHeight);
-	  this.graphics.lineTo(headerWidth + minuteWidth * x * 10, headerHeight + stageHeight * stages.length);
-	  var text = new PIXI.Text(x * 10 + ' мин', styleMinutes);
-	  text.anchor.set(0.0, 0.5);
-	  text.x = headerWidth + minuteWidth * x * 10;
-	  text.y = headerHeight - 15;
-	  this.textTimes.push(text);
-  }
-  for (var y = 0; y <= stages.length; y ++) {
-	  this.graphics.moveTo(headerWidth, headerHeight + y * stageHeight);
-	  this.graphics.lineTo(headerWidth + minuteWidth * 12 * 10, headerHeight + y * stageHeight);
-	  if (y >= stages.length) break;
-	  var text = new PIXI.Text(stages[y].alias, styleAlias);
-	  text.anchor.set(0.0, 0.5);
-	  text.x = 0;
-	  text.y = headerHeight + y * stageHeight + stageHeight / 2;
-	  this.textAlias.push(text);
-  }
+	for (var y = 0; y < stages.length; y ++) {
+		// blocks
+		penColor = 0xc0c0c0;
+		bgColor = 0xeeeeee;
+		if (!(y%2)) bgColor = 0xffffff;
+		var left = 0;
+		var top = headerHeight + y * stageHeight;
+		var width = headerWidth + minuteWidth * 12 * 10;
+		var height = stageHeight;
+		this.graphics.lineStyle(1, penColor, 1);
+		this.graphics.beginFill(bgColor);
+		this.graphics.drawRect(left, top, width, height);
+		this.graphics.endFill();
+		// legends
+		var text = new PIXI.Text(' '+stages[y].alias, styleAlias);
+		text.anchor.set(0.0, 0.5);
+		text.x = 0;
+		text.y = headerHeight + y * stageHeight + stageHeight / 2;
+		this.textAlias.push(text);
+	}
+	for (var x = 0; x <= 12; x ++) {
+		this.graphics.moveTo(headerWidth + minuteWidth * x * 10, headerHeight);
+		this.graphics.lineTo(headerWidth + minuteWidth * x * 10, headerHeight + stageHeight * stages.length);
+		var text = new PIXI.Text(x * 10 + ' мин', styleMinutes);
+		text.anchor.set(0.0, 0.5);
+		text.x = headerWidth + minuteWidth * x * 10;
+		text.y = headerHeight - 15;
+		this.textTimes.push(text);
+  	}
   // stageIn and stage Out
   this.stageCreate = function() {
 	  this.activeSprites = true;
@@ -141,45 +151,67 @@ for (stage of stages) {
 	}
 }
 
-function updateStageBlock(stage, timeStart) {
+function updateStageUi(stage, timeStart) {
 	stage.timeStart = timeStart;
 	stage.timeWidth = stage.time > stage.timeMax ? stage.time : stage.timeMax;
 	stage.timeEnd = stage.timeStart + stage.timeWidth;
 	stage.x = headerWidth + stage.timeStart * minuteWidth;
 	stage.w = stage.timeWidth * minuteWidth;
+	stage.wMax = stage.timeMax * minuteWidth;
 }
 
-function updateStageUi(stage) {
+function paintStage(stage) {
 	stage.graph.clear();
-	penColor = 0xc0c0c0;
-	bgColor = 0xe0e0e0;
-	if (stage.state === "completed") {
-		if (stage.time > stage.timeMax) bgColor = 0xff4040;
-		else bgColor = 0x7fff90;
+	penColor = 0x606060;
+	bgColor = 0xc0c0c0;
+	thickness = 1;
+	if (stage.state === "wait" ) bgColor = 0xfffac8;
+	if (stage.state === "completed" || stage.state === "active") {
+		if (stage.time < stage.timeMax) bgColor = 0xc0c0c0;
 	}
-	if (stage.state === "wait") {
-		bgColor = 0xfffac8;
-	}
-	if (stage.state === "active") {
-		penColor = 0x0000ff;
-		if (stage.time > stage.timeMax) bgColor = 0xff4040;
-		else bgColor = 0x7fff90;
-	}		
 	stage.graph.lineStyle(1, penColor, 1);
 	stage.graph.beginFill(bgColor);
-	stage.graph.drawRect(stage.x, stage.y, stage.w, stage.h, 5);
+	stage.graph.drawRect(stage.x, stage.y - stage.h / 2, stage.wMax, stage.h);
 	stage.graph.endFill();
 
+	if (stage.state === "active") {
+		penColor = 0x0000ff;
+		thickness = 3;
+	}
+	if (stage.state === "completed" || stage.state === "active") {
+		if (stage.time > stage.timeMax) {
+			bgColor = 0xff4040;
+			stage.graph.lineStyle(thickness, penColor, 1);
+			stage.graph.beginFill(bgColor);
+			stage.graph.drawRect(stage.x + stage.wMax, stage.y - stage.h / 2, stage.w - stage.wMax, stage.h);
+			stage.graph.endFill();
+		} else {
+			bgColor = 0x7fff90;
+			if (stage.state === "completed") bgColor = 0x308030;
+			stage.graph.lineStyle(thickness, penColor, 1);
+			stage.graph.beginFill(bgColor);
+			stage.graph.drawRect(stage.x, stage.y - stage.h / 2, stage.time * minuteWidth, stage.h);
+			stage.graph.endFill();			
+		}
+	}
+	/*
+	stage.graph.moveTo(stage.x, stage.y - stage.h / 2);
+	stage.graph.lineTo(stage.x + stage.w, stage.y - stage.h / 2);
+	stage.graph.lineTo(stage.x + stage.w, stage.y + stage.h / 2);
+	stage.graph.lineTo(stage.x, stage.y + stage.h / 2);
+	stage.graph.lineTo(stage.x, stage.y - stage.h / 2);
+	*/	
 }
 
 function updateModelUi() {
-	timeScanner = 0;
+	
 	for (stage of stages) {
+		timeScanner = 0;
 		for (prev of stage.prev) {
 			if (prev.timeEnd > timeScanner) timeScanner = prev.timeEnd;
 		}
-		updateStageBlock(stage, timeScanner);
-		updateStageUi(stage);
+		updateStageUi(stage, timeScanner);
+		paintStage(stage);
 	}
 }
 
@@ -190,7 +222,6 @@ updateModelUi();
 app.ticker.add(function() {
 	grids.animate();
 	for (stage of stages) {
-		stage.graph.graphicsData[0].lineColor += 10;
 	}
 });
 
