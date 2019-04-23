@@ -157,9 +157,11 @@ for (stage of stages) {
 	stage.y = headerHeight + count * stageHeight - stageHeight / 2;
 	stage.h = stageHeight / 2;
 	stage.graph = new PIXI.Graphics();
+	stage.links = new PIXI.Graphics();
 	stage.textOverflow = new PIXI.Text("", styleOverflow);
 	stage.textOverflow.anchor.set(0.0, 0.0);
 	app.stage.addChild(stage.graph);
+	app.stage.addChild(stage.links);
 	app.stage.addChild(stage.textOverflow);
 };
 
@@ -184,6 +186,14 @@ function updateStageUi(stage, timeStart) {
 var activePenColor = 250;
 var activePenColorDelta = -50;
 function paintStage(stage) {
+	// init block limit points
+	stage.pointBegin = {};
+	stage.pointEnd = {};
+	stage.pointBegin.x = stage.x;
+	stage.pointBegin.y = stage.y;
+	stage.pointEnd.x = stage.x + stage.wMax;
+	stage.pointEnd.y = stage.pointBegin.y;
+	// draw block
 	stage.graph.clear();
 	penColor = 0x606060;
 	bgColor = 0xc0c0c0;
@@ -211,6 +221,7 @@ function paintStage(stage) {
 			stage.graph.drawRect(stage.x + stage.wMax, stage.y - stage.h / 2, stage.w - stage.wMax, stage.h);
 			stage.graph.endFill();
 			textOverflowX = stage.x + stage.w;
+			stage.pointEnd.x = stage.x + stage.w;
 			stage.textOverflow.text = stage.time + " из " + stage.timeMax + " мин";
 		} else {
 			bgColor = 0x7fff90;
@@ -219,14 +230,26 @@ function paintStage(stage) {
 			stage.graph.beginFill(bgColor);
 			stage.graph.drawRect(stage.x, stage.y - stage.h / 2, stage.time * minuteWidth, stage.h);
 			stage.graph.endFill();
+			stage.pointEnd.x = stage.x + stage.time * minuteWidth;
 			stage.textOverflow.text = stage.time + " из " + stage.timeMax + " мин";
 		}
 	}
+	// draw text
 	stage.textOverflow.x = textOverflowX + 10;
 	stage.textOverflow.y = stage.y - stage.h / 2;
-	
+	// draw links
+	stage.links.clear();
+	stage.links.lineStyle(3, 0x806080, 1);
+	for (prev of stage.prev) {
+		stage.links.drawEllipse(prev.pointEnd.x, prev.pointEnd.y, 2, 2);
+		stage.links.moveTo(prev.pointEnd.x, prev.pointEnd.y);
+		if (prev.pointEnd.x !== stage.pointBegin.x) {
+			stage.links.lineTo(prev.pointEnd.x, stage.pointBegin.y);
+		}
+		stage.links.lineTo(stage.pointBegin.x, stage.pointBegin.y);
+		stage.links.drawEllipse(stage.pointBegin.x, stage.pointBegin.y, 2, 2)
+	}
 }
-
 
 function updateModelUi() {
 	for (stage of stages) {
