@@ -1,5 +1,7 @@
 // init app
-var app = new PIXI.Application(1280, 720, {backgroundColor: 0xeeeeee}/*, { transparent: true }*/);
+const screenWidth = 1280;
+const screenHeight = 720;
+var app = new PIXI.Application(screenWidth, screenHeight, {backgroundColor: 0xeeeeee}/*, { transparent: true }*/);
 document.body.appendChild(app.view);
 
 // stages model
@@ -30,10 +32,18 @@ var stages = [
 // 1 minute = 10 pixels => 2 hours = 120 minutes = 1200 pixels
 var offsetX = 0;
 var offsetY = 0;
-var headerHeight = 50;
+var headerHeight = 60;
 var headerWidth = 220;
 var stageHeight = 30;
 var minuteWidth = 10;
+
+var styleTitle = new PIXI.TextStyle({
+	fontFamily: 'Arial',
+	fontSize: 20,
+	fontStyle: 'normal',
+	fontWeight: 'bold',
+  fill: ['#000000', '#000040'],
+});
 
 var styleMinutes = new PIXI.TextStyle({
 	fontFamily: 'Arial',
@@ -52,12 +62,22 @@ var styleAlias = new PIXI.TextStyle({
   align: "left"
 });
 
+var styleOverflow = new PIXI.TextStyle({
+	fontFamily: 'Arial',
+	fontSize: 12,
+	fontStyle: 'normal',
+	fontWeight: 'normal',
+	fill: ['#000000', '#000000'],
+	align: "left"
+});
+
 // create a new Sprite from an image path.
-var Grids = function() {
-  this.graphics = new PIXI.Graphics();
-  this.graphics.lineStyle(1, 0xa0a0a0);
-  this.textAlias = [];
-  this.textTimes = [];
+var Bg = function() {
+	this.graphics = new PIXI.Graphics();
+	this.graphics.lineStyle(1, 0xa0a0a0);
+	this.textAlias = [];
+	this.textTimes = [];
+	// horizontal blocks
 	for (var y = 0; y < stages.length; y ++) {
 		// blocks
 		penColor = 0xc0c0c0;
@@ -78,44 +98,44 @@ var Grids = function() {
 		text.y = headerHeight + y * stageHeight + stageHeight / 2;
 		this.textAlias.push(text);
 	}
+	// vertical (time) lines
 	for (var x = 0; x <= 12; x ++) {
-		this.graphics.moveTo(headerWidth + minuteWidth * x * 10, headerHeight);
-		this.graphics.lineTo(headerWidth + minuteWidth * x * 10, headerHeight + stageHeight * stages.length);
+		var xStart = headerWidth + minuteWidth * x * 10;
+		var yStart = headerHeight;
+		var yEnd = headerHeight + stageHeight * stages.length;
+		var dy = 5; 
+		for (var dy = yStart; dy < yEnd; dy += 10 ) {
+			this.graphics.moveTo(xStart, dy);
+			this.graphics.lineTo(xStart, dy + 5);
+		}
 		var text = new PIXI.Text(x * 10 + ' мин', styleMinutes);
 		text.anchor.set(0.0, 0.5);
-		text.x = headerWidth + minuteWidth * x * 10;
+		text.x = xStart;
 		text.y = headerHeight - 15;
 		this.textTimes.push(text);
-  	}
-  // stageIn and stage Out
-  this.stageCreate = function() {
-	  this.activeSprites = true;
-	  this.graphics.itemProperty = "Grids";
-	  app.stage.addChild(this.graphics);
-	  for (text of this.textTimes) {
-		  text.itemProperty = "Grids";
+	}
+	// create title
+	this.textTitle = new PIXI.Text('Станция "Цифровая" - График Исполненной Работы', styleTitle);
+	this.textTitle.anchor.set(0.5);
+	this.textTitle.x = (screenWidth + headerWidth)/2;
+	this.textTitle.y = headerHeight / 3;
+	// create timer
+	this.textTimer = new PIXI.Text('00:00:00', styleTitle);
+	this.textTimer.anchor.set(0.5);
+	this.textTimer.x = headerWidth / 2;
+	this.textTimer.y = headerHeight / 3;	
+  	// put on stage
+	app.stage.addChild(this.graphics);
+	for (text of this.textTimes) {
 		  app.stage.addChild(text);
-	  }
-	  for (text of this.textAlias) {
-		  text.itemProperty = "Grids";
-		  app.stage.addChild(text);
-	  }		
-  }
-  this.stageClear = function() {
-	  this.activeSprites = false;
-	  for (var i = app.stage.children.length - 1; i >= 0; i--) {
-		  if (app.stage.children[i].itemProperty === "Grids") app.stage.removeChild(app.stage.children[i]);
-	  };	
-  }	
-  // animate mask
-  this.animate = function() {
-	  if (this.activeSprites) {
-	  }
-  }
-};
-grids = new Grids();
-grids.stageCreate();
-
+	}
+	for (text of this.textAlias) {
+		app.stage.addChild(text);
+	}
+	app.stage.addChild(this.textTitle);
+	app.stage.addChild(this.textTimer);
+}
+bg = new Bg();
 
 function stageGet(name) {
 	for(var stage of stages) {
@@ -137,7 +157,10 @@ for (stage of stages) {
 	stage.y = headerHeight + count * stageHeight - stageHeight / 2;
 	stage.h = stageHeight / 2;
 	stage.graph = new PIXI.Graphics();
+	stage.textOverflow = new PIXI.Text("", styleOverflow);
+	stage.textOverflow.anchor.set(0.0, 0.0);
 	app.stage.addChild(stage.graph);
+	app.stage.addChild(stage.textOverflow);
 };
 
 // set dependencies
@@ -153,13 +176,13 @@ for (stage of stages) {
 
 function updateStageUi(stage, timeStart) {
 	stage.timeStart = timeStart;
-	stage.timeWidth = stage.time > stage.timeMax ? stage.time : stage.timeMax;
-	stage.timeEnd = stage.timeStart + stage.timeWidth;
 	stage.x = headerWidth + stage.timeStart * minuteWidth;
-	stage.w = stage.timeWidth * minuteWidth;
+	stage.w = (stage.time > stage.timeMax ? stage.time : stage.timeMax) * minuteWidth;
 	stage.wMax = stage.timeMax * minuteWidth;
 }
 
+var activePenColor = 250;
+var activePenColorDelta = -50;
 function paintStage(stage) {
 	stage.graph.clear();
 	penColor = 0x606060;
@@ -173,9 +196,11 @@ function paintStage(stage) {
 	stage.graph.beginFill(bgColor);
 	stage.graph.drawRect(stage.x, stage.y - stage.h / 2, stage.wMax, stage.h);
 	stage.graph.endFill();
-
+	var textOverflowX = stage.x + stage.wMax;
+	stage.textOverflow.text = "";
 	if (stage.state === "active") {
-		penColor = 0x0000ff;
+		if (stage.time < stage.timeMax) penColor = 0x008000 | activePenColor;
+		else penColor = 0x800000 | activePenColor;
 		thickness = 3;
 	}
 	if (stage.state === "completed" || stage.state === "active") {
@@ -185,32 +210,35 @@ function paintStage(stage) {
 			stage.graph.beginFill(bgColor);
 			stage.graph.drawRect(stage.x + stage.wMax, stage.y - stage.h / 2, stage.w - stage.wMax, stage.h);
 			stage.graph.endFill();
+			textOverflowX = stage.x + stage.w;
+			stage.textOverflow.text = stage.time + " из " + stage.timeMax + " мин";
 		} else {
 			bgColor = 0x7fff90;
 			if (stage.state === "completed") bgColor = 0x308030;
 			stage.graph.lineStyle(thickness, penColor, 1);
 			stage.graph.beginFill(bgColor);
 			stage.graph.drawRect(stage.x, stage.y - stage.h / 2, stage.time * minuteWidth, stage.h);
-			stage.graph.endFill();			
+			stage.graph.endFill();
+			stage.textOverflow.text = stage.time + " из " + stage.timeMax + " мин";
 		}
 	}
-	/*
-	stage.graph.moveTo(stage.x, stage.y - stage.h / 2);
-	stage.graph.lineTo(stage.x + stage.w, stage.y - stage.h / 2);
-	stage.graph.lineTo(stage.x + stage.w, stage.y + stage.h / 2);
-	stage.graph.lineTo(stage.x, stage.y + stage.h / 2);
-	stage.graph.lineTo(stage.x, stage.y - stage.h / 2);
-	*/	
+	stage.textOverflow.x = textOverflowX + 10;
+	stage.textOverflow.y = stage.y - stage.h / 2;
+	
 }
 
+
 function updateModelUi() {
-	
 	for (stage of stages) {
-		timeScanner = 0;
+		timeEdge = 0;
 		for (prev of stage.prev) {
-			if (prev.timeEnd > timeScanner) timeScanner = prev.timeEnd;
+			timeEnd = prev.timeStart + prev.timeMax;
+			if (prev.state === "active" && prev.time > prev.timeMax || prev.state === "completed" ) {
+				timeEnd = prev.timeStart + prev.time;
+			}
+			if (timeEnd > timeEdge) timeEdge = timeEnd;
 		}
-		updateStageUi(stage, timeScanner);
+		updateStageUi(stage, timeEdge);
 		paintStage(stage);
 	}
 }
@@ -219,9 +247,17 @@ function updateModelUi() {
 updateModelUi();
 
 // timer event
+tmprev = performance.now();
 app.ticker.add(function() {
-	grids.animate();
-	for (stage of stages) {
+	now = performance.now();
+	if (now - tmprev >= 100) {
+		tmprev = now;
+		activePenColor += activePenColorDelta;
+		if (activePenColorDelta < 0 && activePenColor <= 0 ||
+			activePenColorDelta > 0 && activePenColor >= 250 ) activePenColorDelta = - activePenColorDelta; else
+		for (stage of stages) {
+			if (stage.state === "active") paintStage(stage)
+		}
 	}
 });
 
@@ -234,6 +270,7 @@ function onUpdate(model) {
 		stage.progress = flow.progress;
 		stage.state = flow.state;
 	}
+	bg.textTimer.text = model.timestring;
 	updateModelUi();
 }
 
