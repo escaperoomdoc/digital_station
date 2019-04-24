@@ -158,7 +158,7 @@ button:active {
 .switch_off { display: none; }
 
 /* LOGGER */
-.logger_ready { font-style: italic; }
+.logger_ready { font-style: normal; }
 .logger_active { font-weight: bold; }
 
 /* CONFIRM */

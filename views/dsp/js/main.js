@@ -407,8 +407,11 @@ var app = new Vue({
     }
 });
 
+var audio = document.getElementsByTagName("audio")[0];
+
 var counter = 0;
 var str;
+
 function read(){
     var file = document.getElementById("file").files[0];
     var reader = new FileReader();
