@@ -345,7 +345,7 @@ const defaultRDM =  {
         },
         "ls_m16": {
             "state": "blue"
-        },
+        }
     }
 };
 var app = new Vue({
@@ -362,6 +362,8 @@ var app = new Vue({
             "progress": "0"
         },
         status: "Загрузка...",
+        stateRouteIn: false,
+        stateRouteOut: false
     },
     methods: {
         play() {
@@ -404,6 +406,14 @@ var app = new Vue({
                 return { background: value};
             }
         },
+        playRouteIn: function () {
+            this.stateRouteIn = false;
+            socket.emit('client2server', '{"name":"dsp", "play": "route_in"}');
+        },
+        playRouteOut: function () {
+            this.stateRouteOut = false;
+            socket.emit('client2server', '{"name":"dsp", "play": "route_out"}');
+        },
     }
 });
 
@@ -436,6 +446,12 @@ function updateModel(obj) {
         let state = item.state;
         let time = item.time;
         if (time !== undefined && time !== "" && time < 0) state = "fail";
+        if (app.event.diagram.flow["route_in"].state !== "active" && name === "route_in" && state === "active"){
+            app.stateRouteIn = true;
+        }
+        if (app.event.diagram.flow["route_out"].state !== "active" && name === "route_out" && state === "active"){
+            app.stateRouteOut = true;
+        }
 
         app.event.diagram.flow[name].state = state;
         app.event.diagram.flow[name].time = time + "мин";
