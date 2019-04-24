@@ -85,7 +85,8 @@ module.exports = (http, model) =>
 				}
 				if (obj.play) {
 					console.log(`abonent ${abon.name} plays the ${obj.play}`);
-					socket.model.playerExecute(obj.play);
+					socket.model.playerStart(obj.play);
+					response(obj);
 				}				
 			}
 			catch(error) {
