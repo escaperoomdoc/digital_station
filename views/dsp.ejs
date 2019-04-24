@@ -20,9 +20,8 @@
             <p>{{ time }}</p>
         </header>
         <section class="station">
-				<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+			<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 				<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 				<svg
 					xmlns:dc="http://purl.org/dc/elements/1.1/"
 					xmlns:cc="http://creativecommons.org/ns#"
@@ -47,16 +46,16 @@
 					  borderopacity="1.0"
 					  inkscape:pageopacity="0.0"
 					  inkscape:pageshadow="2"
-					  inkscape:zoom="0.5"
-					  inkscape:cx="279.75125"
-					  inkscape:cy="-119.34913"
+					  inkscape:zoom="5.6568542"
+					  inkscape:cx="686.40448"
+					  inkscape:cy="48.102069"
 					  inkscape:document-units="mm"
 					  inkscape:current-layer="layer1"
 					  showgrid="true"
 					  units="px"
-					  inkscape:window-width="1600"
-					  inkscape:window-height="1178"
-					  inkscape:window-x="1358"
+					  inkscape:window-width="1208"
+					  inkscape:window-height="746"
+					  inkscape:window-x="150"
 					  inkscape:window-y="-8"
 					  inkscape:window-maximized="1"
 					  inkscape:snap-to-guides="false"
@@ -85,7 +84,7 @@
 						  <dc:format>image/svg+xml</dc:format>
 						  <dc:type
 							  rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-						  <dc:title></dc:title>
+						  <dc:title />
 						</cc:Work>
 					 </rdf:RDF>
 				  </metadata>
@@ -1674,6 +1673,74 @@
 						 sodipodi:nodetypes="cc"
 						 inkscape:label=""
 						 :class="'section_'+event.rdm.ms_1a.state" />
+					 <rect
+						 id="vu45_rdm"
+						 epoch="Опробование тормозов"
+						 owner="tcm"
+						 next="unshoe"
+						 ready="Внимание! Подготовьтесь получение справки ВУ-45"
+						 active="Подтвердите получение справки ВУ-45"
+						 time="5"
+						 speed="3"
+						 height="5.2778749"
+						 width="50.174873"
+						 y="212.34024"
+						 x="161.40273"
+						 rx="2.3558602"
+						 ry="4.3289652"
+						 class="process"
+						 style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#00000b;stroke-width:0.17814155;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+						 inkscape:label=""
+						 @click="playRouteOut"
+						 v-show="stateRouteOut"
+						 class="buttonRoute"/>
+					 <text
+						 xml:space="preserve"
+						 style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+						 x="164.05666"
+						 y="215.64478"
+						 id="text41-6-6-6-5-9-8-6"
+						 @click="playRouteOut"
+						 v-show="stateRouteOut"><tspan
+							sodipodi:role="line"
+							id="tspan39-9-0-5-9-6-8-3"
+							x="164.05666"
+							y="215.64478"
+							style="font-size:2.46944451px;stroke-width:0.26458332">СЦБ: задать маршрут отправления</tspan></text>
+					 <rect
+						 id="vu45_rdm"
+						 epoch="Опробование тормозов"
+						 owner="tcm"
+						 next="unshoe"
+						 ready="Внимание! Подготовьтесь получение справки ВУ-45"
+						 active="Подтвердите получение справки ВУ-45"
+						 time="5"
+						 speed="3"
+						 height="5.2778749"
+						 width="50.174873"
+						 y="130.32629"
+						 x="187.95013"
+						 rx="2.3558602"
+						 ry="4.3289652"
+						 class="process"
+						 style="clip-rule:evenodd;fill:none;fill-opacity:0.1356784;fill-rule:evenodd;stroke:#00000b;stroke-width:0.17814155;stroke-opacity:1;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+						 inkscape:label=""
+						 @click="playRouteIn"
+						 v-show="stateRouteIn"
+						 class="buttonRoute"/>
+					 <text
+						 xml:space="preserve"
+						 style="font-style:normal;font-weight:normal;font-size:4.23333311px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+						 x="195.20084"
+						 y="133.62393"
+						 id="text41-6-6-6-5-9-8-6-5"
+						 @click="playRouteIn"
+						 v-show="stateRouteIn"><tspan
+							sodipodi:role="line"
+							id="tspan39-9-0-5-9-6-8-3-2"
+							x="195.20084"
+							y="133.62393"
+							style="font-size:2.46944451px;stroke-width:0.26458332">СЦБ: задать маршрут на путь</tspan></text>
 				  </g>
 				</svg>
         </section>

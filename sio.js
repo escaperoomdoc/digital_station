@@ -1,4 +1,14 @@
+abonsAliases = [];
+abonsAliases["sig"] = "Сигналист";
+abonsAliases["vcdeg"] = "ВЧДЭ головной";
+abonsAliases["vcdeh"] = "ВЧДЭ хвостовой";
+abonsAliases["tcm"] = "Машинист";
+abonsAliases["dsp"] = "ДСП";
+abonsAliases["stc"] = "Оператор СТЦ";
+abonsAliases["gir"] = "Анализ ГИР";
+
 module.exports = (http, model) =>
+
 {
 	const io = require('socket.io')(http);
 	io.on('connect', (socket) => {
@@ -12,6 +22,7 @@ module.exports = (http, model) =>
 			abon = socket.model.data.abonents[socket.model.data.abonents.length-1];
 			abon.id = socket.id;
 			abon.name = 'unnamed';
+			abon.alias = 'Регистрация...';
 		}
 		// handle disconnect
 		socket.on('disconnect', (reason) => {
@@ -36,7 +47,13 @@ module.exports = (http, model) =>
 				if (obj.name) {
 					if (abon.name !== obj.name) {
 						abon.name = obj.name;
-						console.log(`socket ${abon.id} introduced as: ${abon.name}`);
+						try {
+							abon.alias = abonsAliases[abon.name];
+						}
+						catch(error) {
+							abon.alias = "John Doe";
+						}
+						console.log(`socket ${abon.id} introduced as: ${abon.name} - "${abon.alias}"`);
 					}					
 					response(obj);
 				}
