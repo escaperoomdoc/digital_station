@@ -331,6 +331,7 @@ function playerExecute(scenario) {
 		scenario.state = "idle";
 	}
 }
+module.exports.playerExecute = playerExecute;
 
 function playerControl() {
 	for (scenario of scenarios) {

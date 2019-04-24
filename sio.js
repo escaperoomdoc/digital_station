@@ -8,7 +8,6 @@ abonsAliases["stc"] = "Оператор СТЦ";
 abonsAliases["gir"] = "Анализ ГИР";
 
 module.exports = (http, model) =>
-
 {
 	const io = require('socket.io')(http);
 	io.on('connect', (socket) => {
@@ -84,6 +83,10 @@ module.exports = (http, model) =>
 						response(obj);
 					}
 				}
+				if (obj.play) {
+					console.log(`abonent ${abon.name} plays the ${obj.play}`);
+					socket.model.playerExecute(obj.play);
+				}				
 			}
 			catch(error) {
 				console.log(`socket ${socket.id} receive error: ${error}, data=${data}`);
