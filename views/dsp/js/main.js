@@ -354,7 +354,14 @@ var app = new Vue({
         event: JSON.parse(JSON.stringify(defaultRDM)),
         time: "00:00:00",
         abonents: [],
-        logger: []
+        logger: [],
+        message: {
+            "state": "idle",
+            "time": "5",
+            "text": "Текст сообщения",
+            "progress": "0"
+        },
+        status: "Загрузка...",
     },
     methods: {
         play() {
@@ -380,6 +387,22 @@ var app = new Vue({
             this.event =  JSON.parse(JSON.stringify(defaultRDM));
             counter = 0;
             this.time = "00:00:00";
+        },
+        confirm: function () {
+            socket.emit('client2server', '{"command":"complete"}');
+        },
+        cancel: function () {
+
+        },
+        progressBar: function() {
+            if (this.message.state=='active' && (this.message.time >= 0)) {
+                let progress1 = +this.message.progress;
+                if (progress1 < 0) progress1 = 0;
+                else if (progress1 > 100) progress1 = 100;
+                let progress2 = progress1 + 5;
+                let value = 'linear-gradient(to right, #7AFF90 ' + progress1 + '%, #E6FFEA ' + progress2 + '%)';
+                return { background: value};
+            }
         },
     }
 });
@@ -469,6 +492,28 @@ function updateModel(obj) {
         if (state === "idle") text = "В ожидании...";
         else text = item.text;
         app.logger.push({"name": name, "text": text, "state": state});
+    });
+
+    /* MESSAGE */
+    obj.messages.forEach(function(item) {
+        if (item.type === "dsp"){
+            if ( (app.message.state !== "ready") && (item.state === "ready") ||
+                (app.message.state !== "active") && (item.state === "active"))
+            {
+                audio.play();
+            }
+            app.message.state = item.state;
+            app.message.time = item.time;
+            app.message.text = item.text;
+            app.message.progress = item.progress;
+        }
+    });
+
+    /* STATUS */
+    obj.stocks.forEach(function(item) {
+        if (item.active) {
+            app.status = item.status;
+        }
     });
 
     //app.event.diagram.flow = JSON.parse(JSON.stringify(obj.flow));

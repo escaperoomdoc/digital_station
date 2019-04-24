@@ -19,7 +19,7 @@ main {
             "head head head head head head"
             "stat stat stat stat proc proc"
             "stat stat stat stat proc proc"
-            "abon logg logg logg proc proc";
+            "abon logg logg conf proc proc";
     margin: 0 auto;
 }
 
@@ -106,10 +106,11 @@ button:active {
 
 }
 
-.station	{grid-area: stat;}
-.process    {grid-area: proc;}
-.abonents 	{grid-area: abon;}
-.logger     {grid-area: logg;}
+.station	    {grid-area: stat;}
+.process        {grid-area: proc;}
+.abonents 	    {grid-area: abon;}
+.logger         {grid-area: logg;}
+.confirmArea	{grid-area: conf;}
 
 .station svg {
     width: 100% !important;
@@ -160,7 +161,115 @@ button:active {
 .logger_ready { font-style: italic; }
 .logger_active { font-weight: bold; }
 
+/* CONFIRM */
+.currentFlow {
+    display: flex;
+    background-color: lavender;
+    height: 40px;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
 
+.list_active {
+    border: 7px solid deepskyblue;
+}
+
+.list_ready_state {
+    animation: list_ready 2.5s infinite;
+}
+@keyframes list_ready {
+    0% {}
+    5% {}
+    50% {background: #fff17a;}
+    95% {}
+    100% {}
+}
+
+.list_active_state { background: #E6FFEA; }
+.list_fail_state   { background: #ff2030; }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons button {
+    width: 48%;
+    min-width: 48%;
+    height: 30px;
+    border: none;
+    border-radius: 10px;
+    margin: 0 5px;
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    outline: none;
+}
+
+.confirmForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 160px;
+    text-align: center;
+}
+
+.confirmMessage {
+    display: flex;
+    width: 70%;
+    font-size: 0.85em;
+    padding: 4% 4%;
+    margin: 4% 0;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm {
+    background: yellowgreen;
+}
+
+.cancel {
+    background: coral;
+}
+
+
+.submenu-enter-active {
+    animation: submenu-in .5s;
+}
+.submenu-leave-active {
+    animation: submenu-in .2s reverse;
+}
+@keyframes submenu-in {
+    0% { margin-top: 50%; }
+    100% { margin-top: 0; }
+}
+
+.timeActive {
+    position: absolute;
+    right: 8px;
+    top: 0px;
+    font-size: 0.8em;
+}
+
+.submenuButtons-enter-active {
+    animation: submenuButtons-in .5s;
+}
+.submenuButtons-leave-active {
+    animation: submenuButtons-in .2s reverse;
+}
+@keyframes submenuButtons-in {
+    0% { margin-top: 50%; }
+    100% { margin-top: 0; }
+}
+
+.confirmArea {
+    overflow: hidden;
+}
 
 
 

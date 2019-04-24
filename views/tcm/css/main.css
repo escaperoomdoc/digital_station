@@ -158,8 +158,9 @@ header > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 160px;
+    text-align: center;
 }
 
 .confirmMessage {
@@ -191,6 +192,25 @@ header > div {
     animation: submenu-in .2s reverse;
 }
 @keyframes submenu-in {
+    0% { margin-top: 500px; }
+    100% { margin-top: 0; }
+}
+
+.timeActive {
+    position: absolute;
+    right: 8px;
+    top: 0px;
+    font-size: 0.6em;
+}
+
+
+.submenuButtons-enter-active {
+    animation: submenuButtons-in .5s;
+}
+.submenuButtons-leave-active {
+    animation: submenuButtons-in .2s reverse;
+}
+@keyframes submenuButtons-in {
     0% { margin-top: 500px; }
     100% { margin-top: 0; }
 }

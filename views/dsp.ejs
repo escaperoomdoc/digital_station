@@ -3360,6 +3360,31 @@
                 </li>
             </ul>
         </section>
+		<section class="confirmArea">
+			<h3>Текущая операция</h3>
+			<div class="currentFlow" :class="[{'list_ready_state': message.state=='ready'},
+                                                 {'list_active_state': message.state=='active' && message.time >= 0},
+                                                 {'list_fail_state': message.state=='active' && message.time < 0}]"
+				 :style="progressBar()">
+				{{ status }}
+				<div v-if="message.state=='active'" class="timeActive">{{ message.time }} мин</div>
+			</div>
+			<transition name="submenu">
+				<div  class="confirmForm" v-show="message.state!='idle'">
+					<div class="confirmMessage">{{ message.text }}</div>
+					<transition name="submenuButtons">
+						<div class="buttons" v-show="message.state=='active'">
+							<button class="confirm" @click="confirm">OK</button>
+							<button class="cancel" @click="cancel">Cancel</button>
+						</div>
+					</transition>
+				</div>
+			</transition>
+		</section>
+		<audio>
+			<source src="mobile/audio/signal.mp3">
+			<source src="mobile/audio/signal.ogg">
+		</audio>
     </main>
     <script src="dsp/js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.dev.js"></script>

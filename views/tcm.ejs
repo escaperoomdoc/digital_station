@@ -48,10 +48,12 @@
             <transition name="submenu">
                 <section  class="confirmForm" v-show="message.state!='idle'">
                     <div class="confirmMessage">{{ message.text }}</div>
-                    <div class="buttons" v-show="message.state=='active'">
-                        <button class="confirm" @click="confirm">OK</button>
-                        <button class="cancel" @click="cancel">Cancel</button>
-                    </div>
+                    <transition name="submenuButtons">
+                        <div class="buttons" v-show="message.state=='active'">
+                            <button class="confirm" @click="confirm">OK</button>
+                            <button class="cancel" @click="cancel">Cancel</button>
+                        </div>
+                    </transition>
                 </section>
             </transition>
         </div>

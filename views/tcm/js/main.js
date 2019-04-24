@@ -34,10 +34,9 @@ var screen = new Vue({
             "state": "idle",
             "time": "5",
             "text": "Текст сообщения",
-            "progress": "50"
+            "progress": "0"
         },
         status: "Загрузка..."
-
     },
     methods: {
         confirm: function () {
