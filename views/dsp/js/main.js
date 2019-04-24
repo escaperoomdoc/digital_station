@@ -479,7 +479,7 @@ function updateModel(obj) {
     /* ABONENTS */
     app.abonents.splice(0, app.abonents.length);
     obj.abonents.forEach(function(item) {
-        let name = item.name;
+        let name = item.alias;
         app.abonents.push({"name": name});
     });
 
@@ -489,7 +489,7 @@ function updateModel(obj) {
         let name = item.name;
         let state = item.state;
         let text = "";
-        if (state === "idle") text = "В ожидании...";
+        if (state === "idle") text = "—";
         else text = item.text;
         app.logger.push({"name": name, "text": text, "state": state});
     });
