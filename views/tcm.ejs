@@ -34,19 +34,31 @@
             </section>
             <section class="current">
                 <div class="currentTitle">Текущая операция</div>
-                <div class="currentFlow">Текущая операция</div>
-            </section>
-            <section style="height: 120px">
-
-            </section>
-            <section class="confirmForm">
-                <div class="confirmMessage">Подтвердите факт приемки локомотива</div>
-                <div class="buttons">
-                    <button class="confirm" @click="confirm">OK</button>
-                    <button class="cancel" @click="cancel">Cancel</button>
+                <div class="currentFlow" :class="[{'list_ready_state': message.state=='ready'},
+                                                 {'list_active_state': message.state=='active' && message.time >= 0},
+                                                 {'list_fail_state': message.state=='active' && message.time < 0}]"
+                                         :style="progressBar()">
+                    {{ status }}
+                    <div v-if="message.state=='active'" class="timeActive">{{ message.time }} мин</div>
                 </div>
             </section>
+            <section style="height: 100px">
+
+            </section>
+            <transition name="submenu">
+                <section  class="confirmForm" v-show="message.state!='idle'">
+                    <div class="confirmMessage">{{ message.text }}</div>
+                    <div class="buttons" v-show="message.state=='active'">
+                        <button class="confirm" @click="confirm">OK</button>
+                        <button class="cancel" @click="cancel">Cancel</button>
+                    </div>
+                </section>
+            </transition>
         </div>
+        <audio>
+            <source src="mobile/audio/signal.mp3">
+            <source src="mobile/audio/signal.ogg">
+        </audio>
     </div>
 
 <script src="tcm/js/main.js"></script>

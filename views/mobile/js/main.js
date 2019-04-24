@@ -103,12 +103,13 @@ function updateList(obj, abonentType) {
             mobile.message.progress = item.progress;
         }
     });
-	 for (message of obj.messages ) {
+
+    for (message of obj.messages ) {
 		if (message.type === abonentType ) {
 			mobile.fio = message.fio;
 			mobile.name = message.name;
 			break;
 		}
-	 }
+    }
 
 }

@@ -39,6 +39,7 @@ ul li {
     max-height: 600px;
     background: white;
     margin-top: 42px;
+    overflow: hidden;
 }
 
 header {
@@ -96,7 +97,7 @@ header > div {
     align-items: center;
 }
 
-.current div {
+.current > div {
     display: flex;
     font-size: 2em;
     width: 80%;
@@ -116,7 +117,26 @@ header > div {
 .currentFlow {
     background-color: lavender;
     height: 60px;
+    position: relative;
 }
+
+.list_active {
+    border: 7px solid deepskyblue;
+}
+
+.list_ready_state {
+    animation: list_ready 2.5s infinite;
+}
+@keyframes list_ready {
+    0% {}
+    5% {}
+    50% {background: #fff17a;}
+    95% {}
+    100% {}
+}
+
+.list_active_state { background: #E6FFEA; }
+.list_fail_state   { background: #ff2030; }
 
 .buttons {
     display: flex;
@@ -138,13 +158,21 @@ header > div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    height: 160px;
 }
 
 .confirmMessage {
+    display: flex;
+    width: 85%;
     font-size: 2em;
-    padding: 20px 20px;
+    padding: 0 15px;
+    height: 100px;
+    min-height: 100px;
     border-left: 1px solid black;
     border-right: 1px solid black;
+    align-items: center;
+    justify-content: center;
 }
 
 .confirm {
@@ -156,6 +184,23 @@ header > div {
 }
 
 
+.submenu-enter-active {
+    animation: submenu-in .5s;
+}
+.submenu-leave-active {
+    animation: submenu-in .2s reverse;
+}
+@keyframes submenu-in {
+    0% { margin-top: 500px; }
+    100% { margin-top: 0; }
+}
+
+.timeActive {
+    position: absolute;
+    right: 8px;
+    top: 0px;
+    font-size: 0.6em;
+}
 
 @media screen and (max-width: 800px) {
     html {
