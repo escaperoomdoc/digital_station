@@ -271,5 +271,11 @@ button:active {
     overflow: hidden;
 }
 
+.buttonRoute { animation: buttonRoute 1s infinite;}
+@keyframes buttonRoute {
+    0% {fill: white; }
+    50% {fill: lavender;}
+    100% {fill: white;}
+}
 
 
