@@ -13,7 +13,7 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.get('/:id', function(req, res) {
 	try {
-		if (req.params.id === "dsp") res.render("dsp"); else
+		if (req.params.id === "dsp") res.render("dsp", {flowxml: model.flowxml.toString('utf8')}); else
 		if (req.params.id === "tcm") res.render("tcm"); else
 		if (req.params.id === "debug") res.render("debug"); else
 		if (req.params.id === "gir") res.render("gir"); else

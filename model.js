@@ -21,8 +21,11 @@ data.stocks.push({way: "5П", stock: "9193", status: "Коммерческий �
 
 const fs = require('fs');
 var parseString = require('xml2js').parseString;
+
 var rdmxml = fs.readFileSync('./assets/rdm.svg');
+module.exports.rdmxml = rdmxml;
 var flowxml = fs.readFileSync('./assets/flowchart.svg');
+module.exports.flowxml = flowxml;
 
 parseString(rdmxml, (err, result) => {
 	const ellispe = result.svg.g[0].ellipse;
