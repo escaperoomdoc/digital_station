@@ -86,24 +86,37 @@ h3 {
     font-size: 1.05em;
 }
 
-button {
+.menu object {
     background: none;
-    margin: 3px 5px;
-    width: 40px;
-    height: 40px;
+    width: 37px;
+    height: 37px;
     border: none;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.5em;
     display: flex;
     justify-content: center;
     align-items: center;
-    outline: none;
 }
 
-button:active {
-    opacity: 0.6;
+.menu div {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.menu div:hover {
+    background-color: rgba(0,0,0,0.15);
+    transition: 200ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 200ms;
+    -webkit-transition-timing-function: ease-in-out;
+}
 
+.menu div:active {
+    opacity: 0.5;
+    transition: 3000ms;
+    transition-timing-function: ease-in-out;
+    -webkit-transition: 0ms;
+    -webkit-transition-timing-function: ease-in-out;
 }
 
 .station	    {grid-area: stat;}

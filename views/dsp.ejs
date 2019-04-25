@@ -12,11 +12,14 @@
         <header>
             <p>Станция «Цифровая»</p>
             <div class="menu">
-                <button @click="play" title="play">►</button>
-                <button @click="pause" title="pause" style="padding-bottom: 5px">&#10074&#10074</button>
-                <button @click="complete" title="complete" style="padding-top: 2px; font-weight: bold">⟳</button>
-                <button @click="timestep" title="time step" title="complete" style="font-weight: bold">◔</button>
-                <button @click="reset" title="reset">◼</button>
+				<div @click="play"><object type="image/svg+xml" data="dsp/img/play.svg">
+					</object></div>
+				<div @click="pause"><object type="image/svg+xml" data="dsp/img/pause.svg">
+					</object></div>
+				<div @click="complete"><object type="image/svg+xml" data="dsp/img/complete.svg">
+					</object></div>
+				<div @click="reset"><object type="image/svg+xml" data="dsp/img/stop.svg">
+					</object></div>
             </div>
             <p>{{ time }}</p>
         </header>
