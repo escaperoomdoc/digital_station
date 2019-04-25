@@ -1,0 +1,13 @@
+[
+{"time":"00:00:00", "type":"section", "name":"ms_5", "param":"state", "state":"shunt"},
+{"time":"00:00:02", "type":"switch", "name":"sw_2p", "param":"show", "state":"off"},
+{"time":"00:00:02", "type":"switch", "name":"sw_2m", "param":"show", "state":"on"},
+{"time":"00:00:04", "type":"switch", "name":"sw_4p", "param":"show", "state":"on"},
+{"time":"00:00:04", "type":"switch", "name":"sw_4m", "param":"show", "state":"off", "com":"конец перевода"},
+{"time":"00:00:10", "type":"section", "name":"ms_2m", "param":"state", "state":"route"},
+{"time":"00:00:10", "type":"section", "name":"ms_2_4", "param":"state", "state":"route"},
+{"time":"00:00:10", "type":"section", "name":"ms_4p", "param":"state", "state":"route"},
+{"time":"00:00:12", "type":"section", "name":"ms_m2", "param":"state", "state":"route"},
+{"time":"00:00:13", "type":"section", "name":"ms_1c", "param":"state", "state":"route", "com":"конец замыкания"},     
+{"time":"00:00:15", "type":"light", "name":"ls_n5", "param":"state", "state":"green"}
+]

@@ -289,8 +289,11 @@ function playerInit() {
 	try {
 		scenarioNames = [
 			"init",
+			"engine_ready",
+			"route_in",
 			"transit",
 			"arrival",
+			"route_out",
 			"departure"
 		];
 		for(scenarioName of scenarioNames) {
@@ -309,13 +312,14 @@ function playerGet(scenarioName) {
 	}
 }
 
-function playerStart(scenarioName, time) {
+function playerStart(scenarioName) {
 	scenario = playerGet(scenarioName);
 	if (!scenario) return;
 	scenario.starttime = data.time;
 	scenario.state = "play";
 	console.log(`start playing scenario : ${scenarioName}`)
 }
+module.exports.playerStart = playerStart;
 
 function playerExecute(scenario) {
 	for (scenarioitem of scenario.data) {
@@ -331,7 +335,6 @@ function playerExecute(scenario) {
 		scenario.state = "idle";
 	}
 }
-module.exports.playerExecute = playerExecute;
 
 function playerControl() {
 	for (scenario of scenarios) {
