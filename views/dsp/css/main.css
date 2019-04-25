@@ -86,7 +86,7 @@ h3 {
     font-size: 1.05em;
 }
 
-.menu object {
+.menu svg {
     background: none;
     width: 37px;
     height: 37px;
@@ -115,7 +115,7 @@ h3 {
     opacity: 0.5;
     transition: 3000ms;
     transition-timing-function: ease-in-out;
-    -webkit-transition: 0ms;
+    -webkit-transition: 3000ms;
     -webkit-transition-timing-function: ease-in-out;
 }
 
