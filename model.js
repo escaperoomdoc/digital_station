@@ -26,6 +26,14 @@ var rdmxml = fs.readFileSync('./assets/rdm.svg');
 module.exports.rdmxml = rdmxml;
 var flowxml = fs.readFileSync('./assets/flowchart.svg');
 module.exports.flowxml = flowxml;
+var playxml = fs.readFileSync('./views/dsp/img/play.svg');
+module.exports.playxml = playxml;
+var pausexml = fs.readFileSync('./views/dsp/img/pause.svg');
+module.exports.pausexml = pausexml;
+var completexml = fs.readFileSync('./views/dsp/img/complete.svg');
+module.exports.completexml = completexml;
+var stopxml = fs.readFileSync('./views/dsp/img/stop.svg');
+module.exports.stopxml = stopxml;
 
 parseString(rdmxml, (err, result) => {
 	const ellispe = result.svg.g[0].ellipse;
