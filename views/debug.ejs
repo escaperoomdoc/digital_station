@@ -9,6 +9,8 @@
 	<input type="button" value="play" onclick="commandPlay();">
 	<input type="button" value="pause" onclick="commandPause();">
 	<input type="button" value="complete" onclick="commandComplete();"><br><br>
+	<input type="button" value="route_in" onclick="commandRouteIn();">
+	<input type="button" value="route_out" onclick="commandRouteOut();"><br><br>
 	<input type="text" value="{}">
 	<input type="button" value="send" onclick="commandSend();"><br><br>
 	<script src="libs/socket.io.dev.js"></script>
@@ -21,22 +23,28 @@
 		});
 		setTimeout(cbSend, 1000);
 		function cbSend() {
-			socket.emit('client2server', '{"name": "siotest"}');
+			socket.emit('client2server', '{"name": "debug"}');
 		}
 		function commandReset() {
-			socket.emit('client2server', '{"name": "siotest", "command":"reset"}');
+			socket.emit('client2server', '{"name": "debug", "command":"reset"}');
 		}
 		function commandPlay() {
-			socket.emit('client2server', '{"name": "siotest", "command":"play"}');
+			socket.emit('client2server', '{"name": "debug", "command":"play"}');
 		}
 		function commandPause() {
-			socket.emit('client2server', '{"name": "siotest", "command":"pause"}');
+			socket.emit('client2server', '{"name": "debug", "command":"pause"}');
 		}
 		function commandComplete() {
-			socket.emit('client2server', '{"name": "siotest", "command":"complete"}');
+			socket.emit('client2server', '{"name": "debug", "command":"complete"}');
+		}
+		function commandRouteIn() {
+			socket.emit('client2server', '{"name": "debug", "play":"route_in"}');
+		}
+		function commandRouteOut() {
+			socket.emit('client2server', '{"name": "debug", "play":"route_out"}');
 		}
 		function commandSend() {
-			socket.emit('client2server', '{"name": "siotest", "command":"complete"}');
+			socket.emit('client2server', '{"name": "debug", "command":"complete"}');
 		}
     </script>
 </body>

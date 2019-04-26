@@ -6,6 +6,7 @@ abonsAliases["tcm"] = "Машинист";
 abonsAliases["dsp"] = "ДСП";
 abonsAliases["stc"] = "Оператор СТЦ";
 abonsAliases["gir"] = "Анализ ГИР";
+abonsAliases["debug"] = "Терминал";
 
 module.exports = (http, model) =>
 {
