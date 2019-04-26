@@ -118,6 +118,7 @@ header > div {
     background-color: lavender;
     height: 60px;
     position: relative;
+    box-shadow: 0px 0px 0.1em .03em rgba(0,0,0,.3) inset;
 }
 
 .list_active {

@@ -7,6 +7,7 @@ html {
 main > * {
     background: lavender;
     border-radius: 0.6em;
+    box-shadow: 0px 0px 0.2em 0.01em rgba(0,0,0,.3) inset;
 }
 main {
     display: grid;
@@ -182,7 +183,9 @@ h3 {
     position: relative;
     justify-content: center;
     align-items: center;
-    margin-top: 5%;
+    margin: 5%;
+    box-shadow: 0px 0px 0.2em 0.01em rgba(0,0,0,.3);
+    border-radius: 10px;
 }
 
 .list_active {

@@ -63,6 +63,7 @@ p {
     align-items: center;
     font-size: 1.4em;
     position: relative;
+    box-shadow: 0px 0px 0.2em 0.01em rgba(0,0,0,.3) inset;
 }
 
 .list div {
