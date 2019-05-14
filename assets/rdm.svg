@@ -1654,7 +1654,7 @@
        :class="'section_'+event.rdm.ms_1a.state" />
   </g>
   <rect
-     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000001;stroke-width:0.48352963;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:#000001;stroke-width:0.48352963;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
      id="rect226"
      width="27.497726"
      height="5.208137"
@@ -1665,7 +1665,7 @@
 		v-show="stateRouteIn"/>
   <rect
 		
-     style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000001;stroke-width:0.53821409;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+     style="fill:white;fill-opacity:1;fill-rule:nonzero;stroke:#000001;stroke-width:0.53821409;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
      id="rect1033"
      width="39.349285"
      height="5.1534505"
