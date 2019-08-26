@@ -130,8 +130,13 @@ export default {
               }
             }
             console.log('Message!');
-            audio.play();
-            navigator.vibrate(1000);
+            try {
+              audio.play();
+              navigator.vibrate(1000);
+            }
+            catch(error) {
+              console.log('ERROR (audio or vibrate): ' + error);
+            }
           }
           this.message.state = item.state;
           this.message.time = item.time;
